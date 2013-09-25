@@ -30,5 +30,13 @@ namespace Stockness.ViewModel
             ////    // Code runs "for real"
             ////}
         }
+
+        public string ApplicationTitle
+        {
+            get
+            {
+                return "Stockness";
+            }
+        }
     }
 }
