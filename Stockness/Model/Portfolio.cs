@@ -6,8 +6,6 @@ namespace Stockness.Model
     {
         public IList<Position> Positions { get; set; }
         public double StartingBalance { get; set; }
-        public double Gain { get; set; }
-        public double Loss { get; set; }
         public double TotalValue { get; set; }
     }
 }

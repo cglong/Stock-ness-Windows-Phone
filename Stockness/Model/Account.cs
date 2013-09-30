@@ -2,7 +2,7 @@
 
 namespace Stockness.Model
 {
-    public class Member
+    public class Account
     {
         public string Id { get; set; }
         public string Name { get; set; }

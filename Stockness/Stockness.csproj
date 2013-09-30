@@ -76,7 +76,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Core\UppercaseValueConverter.cs" />
-    <Compile Include="Model\Member.cs" />
+    <Compile Include="Model\Account.cs" />
     <Compile Include="Model\Portfolio.cs" />
     <Compile Include="Model\Position.cs" />
     <Compile Include="Model\Stock.cs" />
