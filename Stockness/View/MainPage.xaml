@@ -17,12 +17,12 @@
     DataContext="{Binding Main, Source={StaticResource Locator}}">
 
     <phone:PhoneApplicationPage.Resources>
-        <core:UppercaseValueConverter x:Key="UppercaseValueConverter"/>
+        <core:LowercaseValueConverter x:Key="LowercaseValueConverter"/>
     </phone:PhoneApplicationPage.Resources>
 
     <Grid Background="Transparent">
-        <controls:Pivot Title="{Binding ApplicationTitle, Converter={StaticResource UppercaseValueConverter}}">
-            <controls:PivotItem Header="first">
+        <controls:Panorama Title="{Binding ApplicationTitle, Converter={StaticResource LowercaseValueConverter}}">
+            <controls:PanoramaItem Header="first">
                 <ListBox Margin="0,0,-12,0">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
@@ -31,9 +31,9 @@
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
-            </controls:PivotItem>
+            </controls:PanoramaItem>
             
-            <controls:PivotItem Header="second">
+            <controls:PanoramaItem Header="second">
                 <ListBox Margin="0,0,-12,0">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
@@ -42,8 +42,8 @@
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
-            </controls:PivotItem>
-        </controls:Pivot>
+            </controls:PanoramaItem>
+        </controls:Panorama>
     </Grid>
 
 </phone:PhoneApplicationPage>
