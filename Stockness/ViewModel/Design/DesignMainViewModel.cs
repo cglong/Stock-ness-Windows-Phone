@@ -1,6 +1,6 @@
 using GalaSoft.MvvmLight;
 
-namespace Stockness.ViewModel
+namespace Stockness.ViewModel.Design
 {
     public class DesignMainViewModel : ViewModelBase, IMainViewModel
     {
