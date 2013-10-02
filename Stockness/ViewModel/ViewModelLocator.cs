@@ -20,22 +20,20 @@ namespace Stockness.ViewModel
             ////if (ViewModelBase.IsInDesignModeStatic)
             ////{
             ////    // Create design time view services and models
-            ////    SimpleIoc.Default.Register<IDataService, DesignDataService>();
+            SimpleIoc.Default.Register<IMainViewModel, DesignMainViewModel>();
             ////}
             ////else
             ////{
             ////    // Create run time view services and models
             ////    SimpleIoc.Default.Register<IDataService, DataService>();
             ////}
-
-            SimpleIoc.Default.Register<MainViewModel>();
         }
 
-        public MainViewModel Main
+        public IMainViewModel Main
         {
             get
             {
-                return ServiceLocator.Current.GetInstance<MainViewModel>();
+                return ServiceLocator.Current.GetInstance<IMainViewModel>();
             }
         }
         
