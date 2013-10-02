@@ -82,9 +82,11 @@
     <Compile Include="Model\Stock.cs" />
     <Compile Include="Model\Transaction.cs" />
     <Compile Include="ViewModel\Design\DesignSearchViewModel.cs" />
+    <Compile Include="ViewModel\Design\DesignStockViewModel.cs" />
     <Compile Include="ViewModel\Design\DesignTradeViewModel.cs" />
     <Compile Include="ViewModel\IMainViewModel.cs" />
     <Compile Include="ViewModel\ISearchViewModel.cs" />
+    <Compile Include="ViewModel\IStockViewModel.cs" />
     <Compile Include="ViewModel\ITradeViewModel.cs" />
     <Compile Include="View\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -94,6 +96,9 @@
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="View\SearchPage.xaml.cs">
       <DependentUpon>SearchPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\StockPage.xaml.cs">
+      <DependentUpon>StockPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\TradePage.xaml.cs">
       <DependentUpon>TradePage.xaml</DependentUpon>
@@ -109,6 +114,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\SearchPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\StockPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
