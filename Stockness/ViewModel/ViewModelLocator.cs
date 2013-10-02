@@ -15,6 +15,7 @@ namespace Stockness.ViewModel
             ////{
             SimpleIoc.Default.Register<IMainViewModel, DesignMainViewModel>();
             SimpleIoc.Default.Register<ISearchViewModel, DesignSearchViewModel>();
+            SimpleIoc.Default.Register<ITradeViewModel, DesignTradeViewModel>();
             ////}
             ////else
             ////{
@@ -35,6 +36,14 @@ namespace Stockness.ViewModel
             get
             {
                 return ServiceLocator.Current.GetInstance<ISearchViewModel>();
+            }
+        }
+
+        public ITradeViewModel Trade
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<ITradeViewModel>();
             }
         }
         
