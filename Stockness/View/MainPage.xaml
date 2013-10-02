@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
     xmlns:core="clr-namespace:Stockness.Core"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -20,22 +21,29 @@
     </phone:PhoneApplicationPage.Resources>
 
     <Grid Background="Transparent">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        
-        <StackPanel Margin="12,17,0,28">
-            <TextBlock Text="{Binding ApplicationTitle, Converter={StaticResource UppercaseValueConverter}}"
-                       Style="{StaticResource PhoneTextNormalStyle}"/>
-            <TextBlock Text="page name"
-                       Margin="9,-7,0,0"
-                       Style="{StaticResource PhoneTextTitle1Style}"/>
-        </StackPanel>
-        
-        <Grid Grid.Row="1"
-              Margin="12,0,12,0">
-        </Grid>
+        <controls:Pivot Title="{Binding ApplicationTitle, Converter={StaticResource UppercaseValueConverter}}">
+            <controls:PivotItem Header="first">
+                <ListBox Margin="0,0,-12,0">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Margin="0,0,0,17">
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </controls:PivotItem>
+            
+            <controls:PivotItem Header="second">
+                <ListBox Margin="0,0,-12,0">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Margin="0,0,0,17">
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </controls:PivotItem>
+        </controls:Pivot>
     </Grid>
-    
+
 </phone:PhoneApplicationPage>
