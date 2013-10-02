@@ -10,6 +10,7 @@ namespace Stockness.ViewModel
         public ViewModelLocator()
         {
             ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
+            SimpleIoc.Default.Reset();
 
             ////if (ViewModelBase.IsInDesignModeStatic)
             ////{
