@@ -76,6 +76,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Core\LowercaseValueConverter.cs" />
     <Compile Include="Core\UppercaseValueConverter.cs" />
     <Compile Include="Model\Account.cs" />
     <Compile Include="Model\Portfolio.cs" />
