@@ -14,6 +14,7 @@ namespace Stockness.ViewModel
             ////if (ViewModelBase.IsInDesignModeStatic)
             ////{
             SimpleIoc.Default.Register<IMainViewModel, DesignMainViewModel>();
+            SimpleIoc.Default.Register<ISearchViewModel, DesignSearchViewModel>();
             ////}
             ////else
             ////{
@@ -26,6 +27,14 @@ namespace Stockness.ViewModel
             get
             {
                 return ServiceLocator.Current.GetInstance<IMainViewModel>();
+            }
+        }
+
+        public ISearchViewModel Search
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<ISearchViewModel>();
             }
         }
         
