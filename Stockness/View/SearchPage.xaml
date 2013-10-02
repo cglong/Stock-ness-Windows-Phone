@@ -20,16 +20,14 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         
-        <StackPanel Margin="12,17,0,28">
-            <TextBlock Text="MY APPLICATION"
-                       Style="{StaticResource PhoneTextNormalStyle}"/>
-            <TextBlock Text="page name"
-                       Margin="9,-7,0,0"
-                       Style="{StaticResource PhoneTextTitle1Style}"/>
+        <StackPanel Margin="0,17,0,28">
+            <TextBox/>
         </StackPanel>
         
         <Grid Grid.Row="1"
               Margin="12,0,12,0">
+            <ListBox>
+            </ListBox>
         </Grid>
     </Grid>
 
