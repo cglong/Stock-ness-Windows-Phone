@@ -5,6 +5,8 @@
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
+    xmlns:telerikPrimitives="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Primitives"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
     xmlns:core="clr-namespace:Stockness.Core"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -21,29 +23,104 @@
     </phone:PhoneApplicationPage.Resources>
 
     <Grid Background="Transparent">
-        <controls:Panorama Title="{Binding ApplicationTitle, Converter={StaticResource LowercaseValueConverter}}">
-            <controls:PanoramaItem Header="first">
-                <ListBox Margin="0,0,-12,0">
-                    <ListBox.ItemTemplate>
-                        <DataTemplate>
-                            <StackPanel Margin="0,0,0,17">
-                            </StackPanel>
-                        </DataTemplate>
-                    </ListBox.ItemTemplate>
-                </ListBox>
-            </controls:PanoramaItem>
+       
+
+        <controls:Panorama Grid.ColumnSpan="2">
+            <controls:Panorama.Background>
+                <ImageBrush ImageSource="..\Images\ApplicationBackground2.jpg"/>
+            </controls:Panorama.Background>
+            <controls:Panorama.Title>
+                <Grid Margin="0,60,0,0">
+                    <Image Source="..\ApplicationIcon.png"
+                    HorizontalAlignment="Left"
+                    Height="70" />
+                    <TextBlock Text="{Binding ApplicationTitle, Converter={StaticResource LowercaseValueConverter}}" 
+                               FontSize="75" 
+                               Margin="85,0,0,0" />
+                </Grid>
+            </controls:Panorama.Title>
             
-            <controls:PanoramaItem Header="second">
-                <ListBox Margin="0,0,-12,0">
+            
+            <controls:PanoramaItem>
+                <controls:PanoramaItem.Header>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" FontSize="40">
+                            <Run Text="Hi, "/>
+                            <Run Text="{Binding UserName}"/>
+                            <Run Text="  "/> <!--Can't get the header to fill the parent-->
+                        </TextBlock>
+                        <Grid Grid.Column="1" >
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Row="0" FontSize="20" HorizontalAlignment="Right">
+                                    <Run Text="Current Balance: "/>
+                                    <Run Text="{Binding UserBalance}"/>
+                                </TextBlock>
+                                <TextBlock Grid.Row="1" FontSize="20" HorizontalAlignment="Right">
+                                    <Run Text="Net Change: "/>
+                                    <Run Text="{Binding UserNetChange}"/>
+                                </TextBlock>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </controls:PanoramaItem.Header>
+                    
+                <ListBox
+                    ItemsSource="{Binding Positions}" SelectionChanged="ListBox_SelectionChanged">
+                    <ListBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <toolkit:WrapPanel/>
+                        </ItemsPanelTemplate>
+                    </ListBox.ItemsPanel>
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <StackPanel Margin="0,0,0,17">
-                            </StackPanel>
+                            <telerikPrimitives:RadCycleHubTile Title="{Binding Stock.Symbol}" Background="#2d3f6b" />           
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+                
+            </controls:PanoramaItem>
+
+            
+            
+            <controls:PanoramaItem>
+                <controls:PanoramaItem.Header>
+                    <TextBlock Text="history" FontSize="40"/>
+                </controls:PanoramaItem.Header>
+                <ListBox ItemsSource="{Binding Positions}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <telerikPrimitives:RadCycleHubTile Title="{Binding Stock.Symbol}" Foreground="Black" Background="#ffff" Width="411" Height="77">
+                                <telerikPrimitives:RadCycleHubTile.BackContent>
+                                    <Border Background="{StaticResource PhoneAccentBrush}">
+                                        <TextBlock HorizontalAlignment="Center" 
+                                                   VerticalAlignment="Center" 
+                                                   Text="back content"/>
+                                        
+                                    </Border>
+                                </telerikPrimitives:RadCycleHubTile.BackContent>
+                            </telerikPrimitives:RadCycleHubTile>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
             </controls:PanoramaItem>
+
         </controls:Panorama>
+        
+        
     </Grid>
 
 </phone:PhoneApplicationPage>

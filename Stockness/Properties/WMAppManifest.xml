@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Deployment xmlns="http://schemas.microsoft.com/windowsphone/2009/deployment" AppPlatformVersion="7.1">
-  <App xmlns="" ProductID="{3d132678-4380-4968-bda0-068def55217d}" Title="Stockness" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="Stockness author" Description="Sample description" Publisher="Stockness">
+  <App xmlns="" ProductID="{3d132678-4380-4968-bda0-068def55217d}" Title="Stockness" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="Stockness author" Description="Sample description" Publisher="Stockness" BitsPerPixel="16">
     <IconPath IsRelative="true" IsResource="false">ApplicationIcon.png</IconPath>
     <Capabilities>
       <Capability Name="ID_CAP_GAMERSERVICES" />
@@ -24,7 +24,7 @@
     <Tokens>
       <PrimaryToken TokenID="StocknessToken" TaskName="_default">
         <TemplateType5>
-          <BackgroundImageURI IsRelative="true" IsResource="false">Background.png</BackgroundImageURI>
+          <BackgroundImageURI IsRelative="true" IsResource="false">ApplicationIcon.png</BackgroundImageURI>
           <Count>0</Count>
           <Title>Stockness</Title>
         </TemplateType5>
