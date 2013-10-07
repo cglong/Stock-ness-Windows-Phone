@@ -43,7 +43,7 @@
             </controls:Panorama.Title>
             
             <!-- Main Page Hub-->
-            <controls:PanoramaItem>
+            <controls:PanoramaItem Margin="0,0,-12,0">
                 <controls:PanoramaItem.Header>
                     <Grid>
                         <Grid.RowDefinitions>
@@ -70,7 +70,7 @@
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
                                 <TextBlock Grid.Row="0" FontSize="20" HorizontalAlignment="Right">
-                                    <Run Text="Current Balance: "/>
+                                    <Run Text=" Your Balance: "/>
                                     <Run Text="{Binding UserBalance}"/>
                                 </TextBlock>
                                 <TextBlock Grid.Row="1" FontSize="20" HorizontalAlignment="Right">
@@ -92,7 +92,7 @@
                     </ListBox.ItemsPanel>
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <telerikPrimitives:RadCycleHubTile Title="{Binding Stock.Symbol}" Background="#2d3f6b" />           
+                            <telerikPrimitives:RadCycleHubTile Title="{Binding Stock.Symbol}" Background="#2d3f6b" Opacity=".9"/>           
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
@@ -109,7 +109,7 @@
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <!--Using telerik tiles with hard coded widths for now.. Wanted to use backcontents to show a button for deleting entries-->
-                            <telerikPrimitives:RadCycleHubTile Title="{Binding Stock.Symbol}" Foreground="Black" Background="#ffff" Width="411" Height="77">
+                            <telerikPrimitives:RadCycleHubTile Title="{Binding Stock.Symbol}" Foreground="Black" Background="#ffff" Opacity=".7" Width="411" Height="77">
                                 <telerikPrimitives:RadCycleHubTile.BackContent>
                                     <Border Background="{StaticResource PhoneAccentBrush}">
                                         <TextBlock HorizontalAlignment="Center" 
