@@ -24,23 +24,25 @@
 
     <Grid Background="Transparent">
        
-
-        <controls:Panorama Grid.ColumnSpan="2">
+        
+        <controls:Panorama Grid.ColumnSpan="2"> <!--2 page panorama-->
             <controls:Panorama.Background>
                 <ImageBrush ImageSource="..\Images\ApplicationBackground2.jpg"/>
             </controls:Panorama.Background>
             <controls:Panorama.Title>
                 <Grid Margin="0,60,0,0">
+                    <!--Icon-->
                     <Image Source="..\ApplicationIcon.png"
                     HorizontalAlignment="Left"
                     Height="70" />
+                    <!--Title-->
                     <TextBlock Text="{Binding ApplicationTitle, Converter={StaticResource LowercaseValueConverter}}" 
                                FontSize="75" 
                                Margin="85,0,0,0" />
                 </Grid>
             </controls:Panorama.Title>
             
-            
+            <!-- Main Page Hub-->
             <controls:PanoramaItem>
                 <controls:PanoramaItem.Header>
                     <Grid>
@@ -51,11 +53,13 @@
                             <ColumnDefinition Width="Auto"/>
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
+                        <!-- Username and greeting-->
                         <TextBlock Grid.Column="0" FontSize="40">
                             <Run Text="Hi, "/>
                             <Run Text="{Binding UserName}"/>
-                            <Run Text="  "/> <!--Can't get the header to fill the parent-->
+                            <Run Text="  "/> <!--Can't get the header (grid) to fill the parent TEMPORARY-->
                         </TextBlock>
+                        <!-- Balance and Net Change Indicators-->
                         <Grid Grid.Column="1" >
                             <Grid>
                                 <Grid.RowDefinitions>
@@ -78,6 +82,7 @@
                     </Grid>
                 </controls:PanoramaItem.Header>
                     
+                <!--Stock Tiles-->
                 <ListBox
                     ItemsSource="{Binding Positions}" SelectionChanged="ListBox_SelectionChanged">
                     <ListBox.ItemsPanel>
@@ -95,7 +100,7 @@
             </controls:PanoramaItem>
 
             
-            
+            <!--History panorama item-->
             <controls:PanoramaItem>
                 <controls:PanoramaItem.Header>
                     <TextBlock Text="history" FontSize="40"/>
@@ -103,6 +108,7 @@
                 <ListBox ItemsSource="{Binding Positions}">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
+                            <!--Using telerik tiles with hard coded widths for now.. Wanted to use backcontents to show a button for deleting entries-->
                             <telerikPrimitives:RadCycleHubTile Title="{Binding Stock.Symbol}" Foreground="Black" Background="#ffff" Width="411" Height="77">
                                 <telerikPrimitives:RadCycleHubTile.BackContent>
                                     <Border Background="{StaticResource PhoneAccentBrush}">
