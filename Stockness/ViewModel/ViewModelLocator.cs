@@ -1,6 +1,7 @@
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
 using Microsoft.Practices.ServiceLocation;
+using Stockness.Core;
 using Stockness.ViewModel.Design;
 
 namespace Stockness.ViewModel
@@ -11,6 +12,7 @@ namespace Stockness.ViewModel
         {
             ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
             SimpleIoc.Default.Reset();
+            SimpleIoc.Default.Register<NavigationService>();
 
             ////if (ViewModelBase.IsInDesignModeStatic)
             ////{
