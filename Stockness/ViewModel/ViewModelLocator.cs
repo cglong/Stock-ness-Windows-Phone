@@ -3,6 +3,7 @@ using GalaSoft.MvvmLight.Ioc;
 using Microsoft.Practices.ServiceLocation;
 using Stockness.Core;
 using Stockness.ViewModel.Design;
+using System;
 
 namespace Stockness.ViewModel
 {
@@ -57,6 +58,11 @@ namespace Stockness.ViewModel
             {
                 return ServiceLocator.Current.GetInstance<ITradeViewModel>();
             }
+        }
+
+        public static Uri SearchPageUri()
+        {
+            return new Uri("/View/SearchPage.xaml", UriKind.Relative);
         }
         
         public static void Cleanup()

@@ -131,6 +131,9 @@
     
     <bar:Bindable.ApplicationBar>
         <bar:BindableApplicationBar>
+            <bar:BindableApplicationBarButton Text="{Binding SearchButtonText}"
+                                              IconUri="{Binding SearchButtonIconUri, FallbackValue=/Images/SearchIcon.png}"
+                                              Command="{Binding SearchCommand}"/>
         </bar:BindableApplicationBar>
     </bar:Bindable.ApplicationBar>
 

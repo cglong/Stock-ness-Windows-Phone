@@ -1,7 +1,10 @@
 using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Command;
 using Stockness.Core;
 using Stockness.Model;
+using System;
 using System.Collections.Generic;
+using System.Windows.Input;
 
 namespace Stockness.ViewModel.Design
 {
@@ -88,6 +91,35 @@ namespace Stockness.ViewModel.Design
                         }
                     },
                 };
+            }
+        }
+
+        public ICommand SearchCommand
+        {
+            get
+            {
+                return new RelayCommand(NavigateToSearchPage);
+            }
+        }
+
+        private void NavigateToSearchPage()
+        {
+            _navigationService.NavigateTo(ViewModelLocator.SearchPageUri());
+        }
+
+        public Uri SearchButtonIconUri
+        {
+            get
+            {
+                return new Uri("/Images/SearchIcon.png", UriKind.Relative);
+            }
+        }
+
+        public string SearchButtonText
+        {
+            get
+            {
+                return "Search";
             }
         }
     }

@@ -149,6 +149,7 @@
     </Content>
     <Content Include="Images\ApplicationBackground.png" />
     <Content Include="Images\ApplicationBackground2.jpg" />
+    <Content Include="Images\SearchIcon.png" />
     <Content Include="SplashScreenImage.jpg" />
     <Content Include="ApplicationIcon.png" />
   </ItemGroup>

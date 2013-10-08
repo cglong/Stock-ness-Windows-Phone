@@ -1,5 +1,7 @@
 ﻿using Stockness.Model;
+using System;
 using System.Collections.Generic;
+using System.Windows.Input;
 
 namespace Stockness.ViewModel
 {
@@ -11,5 +13,9 @@ namespace Stockness.ViewModel
         string UserNetChange { get; }
 
         IList<Position> Positions { get; }
+
+        ICommand SearchCommand { get; }
+        Uri SearchButtonIconUri { get; }
+        string SearchButtonText { get; }
     }
 }
