@@ -64,6 +64,11 @@ namespace Stockness.ViewModel
         {
             return new Uri("/View/SearchPage.xaml", UriKind.Relative);
         }
+
+        public static Uri TradePageUri()
+        {
+            return new Uri("/View/TradePage.xaml", UriKind.Relative);
+        }
         
         public static void Cleanup()
         {

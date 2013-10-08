@@ -122,5 +122,34 @@ namespace Stockness.ViewModel.Design
                 return "Search";
             }
         }
+
+        public ICommand TradeCommand
+        {
+            get
+            {
+                return new RelayCommand(NavigateToTradePage);
+            }
+        }
+
+        private void NavigateToTradePage()
+        {
+            _navigationService.NavigateTo(ViewModelLocator.TradePageUri());
+        }
+
+        public Uri TradeButtonIconUri
+        {
+            get
+            {
+                return new Uri("/Images/TradeIcon.png", UriKind.Relative);
+            }
+        }
+
+        public string TradeButtonText
+        {
+            get
+            {
+                return "Trade";
+            }
+        }
     }
 }
