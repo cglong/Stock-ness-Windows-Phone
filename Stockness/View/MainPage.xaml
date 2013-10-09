@@ -1,5 +1,5 @@
 ﻿<phone:PhoneApplicationPage 
-    x:Class="Stockness.View.MainPage"
+    x:Class="Stockness.View.MainPage" x:Name="Page"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
@@ -92,7 +92,11 @@
                     </ListBox.ItemsPanel>
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <telerikPrimitives:RadCycleHubTile Title="{Binding Stock.Symbol}" Background="#2d3f6b" Opacity=".9"/>           
+                            <telerikPrimitives:RadCycleHubTile Title="{Binding Stock.Symbol}"
+                                                               Background="#2d3f6b"
+                                                               Opacity=".9"
+                                                               Command="{Binding DataContext.StockCommand, ElementName=Page}"
+                                                               CommandParameter="{Binding Stock}"/>           
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
@@ -109,7 +113,14 @@
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <!--Using telerik tiles with hard coded widths for now.. Wanted to use backcontents to show a button for deleting entries-->
-                            <telerikPrimitives:RadCycleHubTile Title="{Binding Stock.Symbol}" Foreground="Black" Background="#ffff" Opacity=".7" Width="411" Height="77">
+                            <telerikPrimitives:RadCycleHubTile Title="{Binding Stock.Symbol}"
+                                                               Foreground="Black"
+                                                               Background="#ffff"
+                                                               Opacity=".7"
+                                                               Width="411"
+                                                               Height="77"
+                                                               Command="{Binding DataContext.StockCommand, ElementName=Page}"
+                                                               CommandParameter="{Binding Stock}">
                                 <telerikPrimitives:RadCycleHubTile.BackContent>
                                     <Border Background="{StaticResource PhoneAccentBrush}">
                                         <TextBlock HorizontalAlignment="Center" 

@@ -123,6 +123,19 @@ namespace Stockness.ViewModel.Design
             }
         }
 
+        public ICommand StockCommand
+        {
+            get
+            {
+                return new RelayCommand<Stock>(NavigateToStockPage);
+            }
+        }
+
+        private void NavigateToStockPage(Stock stock)
+        {
+            _navigationService.NavigateTo(ViewModelLocator.StockPageUri(stock));
+        }
+
         public ICommand TradeCommand
         {
             get

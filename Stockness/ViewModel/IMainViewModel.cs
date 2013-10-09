@@ -18,6 +18,8 @@ namespace Stockness.ViewModel
         Uri SearchButtonIconUri { get; }
         string SearchButtonText { get; }
 
+        ICommand StockCommand { get; }
+
         ICommand TradeCommand { get; }
         Uri TradeButtonIconUri { get; }
         string TradeButtonText { get; }

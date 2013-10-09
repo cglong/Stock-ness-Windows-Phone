@@ -2,6 +2,7 @@ using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
 using Microsoft.Practices.ServiceLocation;
 using Stockness.Core;
+using Stockness.Model;
 using Stockness.ViewModel.Design;
 using System;
 
@@ -63,6 +64,12 @@ namespace Stockness.ViewModel
         public static Uri SearchPageUri()
         {
             return new Uri("/View/SearchPage.xaml", UriKind.Relative);
+        }
+
+        public static Uri StockPageUri(Stock stock)
+        {
+            string uri = String.Format("/View/StockPage.xaml?symbol={0}", stock.Symbol);
+            return new Uri(uri, UriKind.Relative);
         }
 
         public static Uri TradePageUri()
