@@ -6,6 +6,7 @@
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:core="clr-namespace:Stockness.Core"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
@@ -13,7 +14,12 @@
     mc:Ignorable="d"
     shell:SystemTray.IsVisible="True"
     DataContext="{Binding Trade, Source={StaticResource Locator}}">
-    
+
+    <phone:PhoneApplicationPage.Resources>
+        <core:LowercaseValueConverter x:Key="LowercaseValueConverter"/>
+        <core:UppercaseValueConverter x:Key="UppercaseValueConverter"/>
+    </phone:PhoneApplicationPage.Resources>
+
     <Grid Background="Transparent">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -21,9 +27,9 @@
         </Grid.RowDefinitions>
         
         <StackPanel Margin="12,17,0,28">
-            <TextBlock Text="MY APPLICATION"
+            <TextBlock Text="{Binding ApplicationTitle, Converter={StaticResource UppercaseValueConverter}}"
                        Style="{StaticResource PhoneTextNormalStyle}"/>
-            <TextBlock Text="page name"
+            <TextBlock Text="{Binding PageTitle, Converter={StaticResource LowercaseValueConverter}}"
                        Margin="9,-7,0,0"
                        Style="{StaticResource PhoneTextTitle1Style}"/>
         </StackPanel>

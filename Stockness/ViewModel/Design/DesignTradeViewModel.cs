@@ -7,5 +7,21 @@ namespace Stockness.ViewModel.Design
         public DesignTradeViewModel()
         {
         }
+
+        public string ApplicationTitle
+        {
+            get
+            {
+                return "Stockness";
+            }
+        }
+
+        public string PageTitle
+        {
+            get
+            {
+                return "Trade";
+            }
+        }
     }
 }
