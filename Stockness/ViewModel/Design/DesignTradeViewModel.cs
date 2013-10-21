@@ -12,14 +12,6 @@ namespace Stockness.ViewModel.Design
         {
             get
             {
-                return "Stockness";
-            }
-        }
-
-        public string PageTitle
-        {
-            get
-            {
                 return "Trade";
             }
         }
