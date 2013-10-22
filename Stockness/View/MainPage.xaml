@@ -101,7 +101,7 @@
                                             <RowDefinition Height="Auto"/>
                                             <RowDefinition Height="*" />
                                         </Grid.RowDefinitions>
-                                        <TextBlock Grid.Row="0" Text="{Binding Stock.Symbol}" FontSize="30" FontWeight="ExtraLight"/>
+                                        <TextBlock Grid.Row="0" Text="{Binding Stock.Symbol}" Foreground="#dddddd" FontSize="30"/>
                                         <Grid Grid.Row="1">
                                             <Grid.RowDefinitions>
                                                 <RowDefinition Height="Auto"/>
@@ -112,9 +112,9 @@
                                                 <ColumnDefinition Width="*"/>
                                                 <ColumnDefinition Width="Auto"/>
                                             </Grid.ColumnDefinitions>
-                                            <TextBlock Grid.Column="1" Grid.Row="0" HorizontalAlignment="Right" FontSize="28" Text="{Binding Stock.CurrentPrice}"/>
-                                            <TextBlock Grid.Column="1" Grid.Row="1" HorizontalAlignment="Right" FontSize="20" Text="{Binding Stock.PriceDelta}"/>
-                                            <TextBlock Grid.Column="1" Grid.Row="2" HorizontalAlignment="Right" FontSize="20">
+                                            <TextBlock Grid.Column="1" Grid.Row="0" HorizontalAlignment="Right" FontSize="28" Foreground="#dddddd" Text="{Binding Stock.CurrentPrice}"/>
+                                            <TextBlock Grid.Column="1" Grid.Row="1" HorizontalAlignment="Right" FontSize="20" Foreground="#dddddd" Text="{Binding Stock.PriceDelta}"/>
+                                            <TextBlock Grid.Column="1" Grid.Row="2" HorizontalAlignment="Right" FontSize="20" Foreground="#dddddd">
                                                 <Run Text="{Binding Stock.Percentage}"/>
                                                 <Run Text="%"/>
                                             </TextBlock>
