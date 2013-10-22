@@ -60,35 +60,55 @@ namespace Stockness.ViewModel.Design
                         Stock = new Stock
                         {
                             Symbol = "MSFT",
+                            CurrentPrice = 34.99,
+                            PriceDelta = 0.83,
+                            Percentage = 2.37,
                         },
+                        
                     },
                     new Position 
                     {
                         Stock = new Stock
                         {
                             Symbol = "AAPL",
-                        }
+                            CurrentPrice = 517.79,
+                            PriceDelta = -0.13,
+                            Percentage = -0.02,
+                        },
+                      
                     },
                     new Position 
                     {
                         Stock = new Stock
                         {
                             Symbol = "GOOG",
-                        }
+                            CurrentPrice = 1003.27,
+                            PriceDelta = -1.13,
+                            Percentage = -.11,
+                        },
+                       
                     },
                     new Position 
                     {
                         Stock = new Stock
                         {
                             Symbol = "TWTR",
-                        }
+                            CurrentPrice = 0.00,
+                            PriceDelta = 0.00,
+                            Percentage = 0.00,
+                        },
+                        
                     },
                     new Position
                     {
                         Stock = new Stock
                         {
                             Symbol = "YHOO",
-                        }
+                            CurrentPrice = 34.46,
+                            PriceDelta = -0.31,
+                            Percentage = 0.90,
+                        },
+                       
                     },
                 };
             }
