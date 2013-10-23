@@ -145,14 +145,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Background.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\ApplicationBackground.png" />
     <Content Include="Images\ApplicationBackground2.jpg" />
     <Content Include="Images\SearchIcon.png" />
+    <Content Include="ApplicationIcon.png" />
     <Content Include="Images\TradeIcon.png" />
     <Content Include="SplashScreenImage.jpg" />
-    <Content Include="ApplicationIcon.png" />
+    <Content Include="Images\ApplicationIcon.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.CSharp.targets" />

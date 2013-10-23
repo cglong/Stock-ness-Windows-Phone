@@ -32,7 +32,7 @@
             <controls:Panorama.Title>
                 <Grid Margin="0,60,0,0">
                     <!--Icon-->
-                    <Image Source="..\ApplicationIcon.png"
+                    <Image Source="..\Images\ApplicationIcon.jpg"
                     HorizontalAlignment="Left"
                     Height="70" />
                     <!--Title-->
@@ -96,7 +96,7 @@
                                                                CommandParameter="{Binding Stock}">
                                 <telerikPrimitives:RadCustomHubTile.FrontContent>
                                     <Grid Background="#2d3f6b"
-                                          Opacity=".9">
+                                          Opacity=".85">
                                         <Grid.RowDefinitions>
                                             <RowDefinition Height="Auto"/>
                                             <RowDefinition Height="*" />
