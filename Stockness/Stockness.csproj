@@ -87,6 +87,7 @@
     </Compile>
     <Compile Include="Core\LowercaseValueConverter.cs" />
     <Compile Include="Core\NavigationService.cs" />
+    <Compile Include="Core\PriceDeltaColorConverter.cs" />
     <Compile Include="Core\UppercaseValueConverter.cs" />
     <Compile Include="Model\Account.cs" />
     <Compile Include="Model\Portfolio.cs" />

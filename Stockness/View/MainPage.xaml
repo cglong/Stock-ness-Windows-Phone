@@ -20,6 +20,7 @@
 
     <phone:PhoneApplicationPage.Resources>
         <core:LowercaseValueConverter x:Key="LowercaseValueConverter"/>
+        <core:PriceDeltaColorConverter x:Key="PriceDeltaColorConverter"/>
     </phone:PhoneApplicationPage.Resources>
 
     <Grid Background="Transparent">
@@ -95,7 +96,7 @@
                             <telerikPrimitives:RadCustomHubTile Command="{Binding DataContext.StockCommand, ElementName=Page}"
                                                                CommandParameter="{Binding Stock}">
                                 <telerikPrimitives:RadCustomHubTile.FrontContent>
-                                    <Grid Background="#2d3f6b"
+                                    <Grid Background="#38476B"
                                           Opacity=".85">
                                         <Grid.RowDefinitions>
                                             <RowDefinition Height="Auto"/>
@@ -113,8 +114,8 @@
                                                 <ColumnDefinition Width="Auto"/>
                                             </Grid.ColumnDefinitions>
                                             <TextBlock Grid.Column="1" Grid.Row="0" HorizontalAlignment="Right" FontSize="28" Foreground="#dddddd" Text="{Binding Stock.CurrentPrice}"/>
-                                            <TextBlock Grid.Column="1" Grid.Row="1" HorizontalAlignment="Right" FontSize="20" Foreground="#dddddd" Text="{Binding Stock.PriceDelta}"/>
-                                            <TextBlock Grid.Column="1" Grid.Row="2" HorizontalAlignment="Right" FontSize="20" Foreground="#dddddd">
+                                            <TextBlock Grid.Column="1" Grid.Row="1" HorizontalAlignment="Right" FontSize="20" Foreground="{Binding Stock.PriceDelta, Converter={StaticResource PriceDeltaColorConverter}}" Text="{Binding Stock.PriceDelta}"/>
+                                            <TextBlock Grid.Column="1" Grid.Row="2" HorizontalAlignment="Right" FontSize="20" Foreground="{Binding Stock.PriceDelta, Converter={StaticResource PriceDeltaColorConverter}}">
                                                 <Run Text="{Binding Stock.Percentage}"/>
                                                 <Run Text="%"/>
                                             </TextBlock>
