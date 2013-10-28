@@ -3,6 +3,8 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:telerikPrimitives="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Primitives"
+    xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -17,22 +19,81 @@
 
     <phone:PhoneApplicationPage.Resources>
         <core:UppercaseValueConverter x:Key="UppercaseValueConverter"/>
+        <core:PriceDeltaColorConverter x:Key="PriceDeltaColorConverter"/>
     </phone:PhoneApplicationPage.Resources>
 
-    <Grid Background="Transparent">
+    <Grid Background="Transparent" >
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         
-        <StackPanel Margin="12,17,0,28">
+        <StackPanel Margin="12,17,0,10">
             <TextBlock Text="{Binding ApplicationTitle, Converter={StaticResource UppercaseValueConverter}}"
                        Style="{StaticResource PhoneTextNormalStyle}"/>
         </StackPanel>
         
-        <Grid Grid.Row="1"
-              Margin="12,0,12,0">
+        <Grid Margin="12,0,12,0"
+              Grid.Row="1"> <!--Page contents-->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Margin="0,0,0,10">
+                <TextBlock Text="Selected Stock:" FontSize="30"/>
+            </Grid>
+            <Grid Grid.Row="1" 
+                Background="#38476B"> <!--Stock Info Grid-->
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                
+                <TextBlock Grid.Row="0" Text="Apple Inc." Foreground="#dddddd" FontSize="40"/>
+                <Grid Grid.Row="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="1" Grid.Row="0" HorizontalAlignment="Right" FontSize="28" Foreground="#dddddd" Text="517.79"/>
+                    <TextBlock Grid.Column="1" Grid.Row="1" HorizontalAlignment="Right" FontSize="20" Foreground="{Binding Stock.PriceDelta, Converter={StaticResource PriceDeltaColorConverter}}" Text="-0.13"/>
+                    <TextBlock Grid.Column="1" Grid.Row="2" HorizontalAlignment="Right" FontSize="20" Foreground="{Binding Stock.PriceDelta, Converter={StaticResource PriceDeltaColorConverter}}">
+                                                <Run Text="-0.02"/>
+                                                <Run Text="%"/>
+                    </TextBlock>
+                    <TextBlock Grid.Column="0" Grid.Row="3" HorizontalAlignment="Left" FontSize="25" Foreground="#dddddd" Text="You Own: 3523 shares"/>
+                </Grid>
+               
+            </Grid>
+
+            <!--Form Options: These are temporary until we import more input controls!!-->
+            <Grid Grid.Row="2" Margin="0,40,0,0">
+                <StackPanel>
+                    <TextBlock Text="# of shares to trade/sell:" FontSize="28"></TextBlock>
+                    <TextBox Text="0"></TextBox>
+                </StackPanel>
+            </Grid>
+            
+            <Grid Grid.Row="3" Margin="0,40,0,0"> 
+                
+                <telerikPrimitives:RadPickerBox Content="Select Action">
+                    <ListBox x:Name="countriesListBox" Background="Black" Padding="20">
+                        <ListBoxItem Content="Buy" IsSelected="True" />
+                        <ListBoxItem Content="Sell"/>
+                    </ListBox>
+                </telerikPrimitives:RadPickerBox>
+            </Grid>
+
         </Grid>
+
     </Grid>
 
 </phone:PhoneApplicationPage>
