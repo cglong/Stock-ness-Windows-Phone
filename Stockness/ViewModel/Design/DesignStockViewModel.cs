@@ -4,6 +4,7 @@ namespace Stockness.ViewModel.Design
 {
     public class DesignStockViewModel : ViewModelBase, IStockViewModel
     {
+       
         public DesignStockViewModel()
         {
         }
@@ -22,30 +23,28 @@ namespace Stockness.ViewModel.Design
         }
         public string StockSymbol
         {
-            get
-            {
-                return "MSFT";
-            }
+            get;
+            set;
         }
-        public string CurrPrice
+        public double CurrPrice
         {
             get
             {
-                return "33.01";
+                return 33.01;
             }
         }
-        public string PriceChange
+        public double PriceChange
         {
             get
             {
-                return "+0.06";
+                return 0.06;
             }
         }
-        public string PercentChange
+        public double PercentChange
         {
             get
             {
-                return "0.18%";
+                return 0.18;
             }
         }
     }
