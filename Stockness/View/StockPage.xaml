@@ -3,6 +3,7 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:core="clr-namespace:Stockness.Core"
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -14,40 +15,50 @@
     shell:SystemTray.IsVisible="True"
     DataContext="{Binding Stock, Source={StaticResource Locator}}">
 
+
+    <phone:PhoneApplicationPage.Resources>
+        <core:LowercaseValueConverter x:Key="LowercaseValueConverter"/>
+        <core:PriceDeltaColorConverter x:Key="PriceDeltaColorConverter"/>
+    </phone:PhoneApplicationPage.Resources>
+
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="..\Images\ApplicationBackground2.jpg"/>
         </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height="60"/>
-                <RowDefinition Height="70"/>
-                <RowDefinition Height="45"/>
-                <RowDefinition Height="60"/>
-            </Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="60"/>
+        </Grid.RowDefinitions>
 
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-            </Grid.ColumnDefinitions>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+
         <TextBlock Grid.Row="0" Grid.Column="0" FontSize="45">
             		<Run Text="{Binding StockName}" Foreground="#818ba6" />
 
-            </TextBlock>
+        </TextBlock>
         <TextBlock  Grid.Row="1" Grid.Column="0" FontSize="35">
             		<Run Text="{Binding StockSymbol}" Foreground="#818ba6"/>
 
-            </TextBlock>
+        </TextBlock>
         <TextBlock Grid.Row="2" Grid.Column="0" FontSize="35">
-            		<Run Text="Current: "/>
+            		<Run Text="Current Price: "/>
             		<Run Text="{Binding CurrPrice}"/>
 
-            </TextBlock>
-        <TextBlock Grid.Row="3" Grid.Column="0" FontSize="35">
-                	<Run Text="Change: "/>
-                	<Run Text="{Binding PriceChange}" Foreground="#7fbf7f"/>
-                	<Run Text=" (" Foreground="#7fbf7f"/>
+        </TextBlock>
+        <TextBlock  Grid.Row="3" Grid.Column="0" FontSize="35">
+                	<Run Text="Price Change: "/>
+                	<Run Text="{Binding PriceChange}" Foreground="{Binding PriceChange, Converter={StaticResource PriceDeltaColorConverter}}"/>
+                	
+        </TextBlock>
+        <TextBlock  Grid.Row="3" Grid.Column="0" FontSize="35" Margin="0,60,0,-60">
+                	<Run Text="Percent Change: "/>
                 	<Run Text="{Binding PercentChange}" Foreground="#7fbf7f"/>
-                	<Run Text=")" Foreground="#7fbf7f"/>
+                    <Run Text="%" Foreground="#7fbf7f"/>
         </TextBlock>
     </Grid>
 
