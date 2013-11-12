@@ -101,6 +101,7 @@
     <Compile Include="ViewModel\ISearchViewModel.cs" />
     <Compile Include="ViewModel\IStockViewModel.cs" />
     <Compile Include="ViewModel\ITradeViewModel.cs" />
+    <Compile Include="ViewModel\Runtime\NetworkViewModel.cs" />
     <Compile Include="View\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
