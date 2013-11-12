@@ -10,7 +10,6 @@ namespace Stockness.Web.Controllers
             return new Stock
             {
                 Symbol = symbol,
-                CurrentPrice = 50,
             };
         }
     }

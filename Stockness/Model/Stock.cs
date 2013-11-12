@@ -3,10 +3,11 @@
     public class Stock
     {
         public string Symbol { get; set; }
-        public string Name { get; set; }
-        public double CurrentPrice { get; set; }
-        public double PriceDelta { get; set; }
-        public double OpenPrice { get; set; }
+        public string CompanyName { get; set; }
+        public string Market { get; set; }
+        public double Price { get; set; }
+        public double PriceChange { get; set; }
+        public double LastPrice { get; set; }
         public double Percentage { get; set; }
     }
 }
