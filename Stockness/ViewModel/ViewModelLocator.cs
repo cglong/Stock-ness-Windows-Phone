@@ -4,6 +4,7 @@ using Microsoft.Practices.ServiceLocation;
 using Stockness.Core;
 using Stockness.Model;
 using Stockness.ViewModel.Design;
+using Stockness.ViewModel.Runtime;
 using System;
 
 namespace Stockness.ViewModel
@@ -16,17 +17,20 @@ namespace Stockness.ViewModel
             SimpleIoc.Default.Reset();
             SimpleIoc.Default.Register<NavigationService>();
 
-            ////if (ViewModelBase.IsInDesignModeStatic)
-            ////{
-            SimpleIoc.Default.Register<IMainViewModel, DesignMainViewModel>();
-            SimpleIoc.Default.Register<ISearchViewModel, DesignSearchViewModel>();
-            SimpleIoc.Default.Register<IStockViewModel, DesignStockViewModel>();
-            SimpleIoc.Default.Register<ITradeViewModel, DesignTradeViewModel>();
-            ////}
-            ////else
-            ////{
-            ////    SimpleIoc.Default.Register<IDataService, DataService>();
-            ////}
+            if (ViewModelBase.IsInDesignModeStatic)
+            {
+                SimpleIoc.Default.Register<IMainViewModel, DesignMainViewModel>();
+                SimpleIoc.Default.Register<ISearchViewModel, DesignSearchViewModel>();
+                SimpleIoc.Default.Register<IStockViewModel, DesignStockViewModel>();
+                SimpleIoc.Default.Register<ITradeViewModel, DesignTradeViewModel>();
+            }
+            else
+            {
+                SimpleIoc.Default.Register<IMainViewModel, DesignMainViewModel>();
+                SimpleIoc.Default.Register<ISearchViewModel, DesignSearchViewModel>();
+                SimpleIoc.Default.Register<IStockViewModel, StockViewModel>();
+                SimpleIoc.Default.Register<ITradeViewModel, DesignTradeViewModel>();
+            }
         }
 
         public IMainViewModel Main
