@@ -1,4 +1,5 @@
 ﻿using Microsoft.Phone.Controls;
+using Stockness.Model;
 using Stockness.ViewModel;
 
 namespace Stockness.View
@@ -14,7 +15,10 @@ namespace Stockness.View
             base.OnNavigatedTo(e);
             var ViewModel = DataContext as IStockViewModel;
 
-            ViewModel.StockSymbol = NavigationContext.QueryString["symbol"];
+            ViewModel.Stock = new Stock
+            {
+                Symbol = NavigationContext.QueryString["symbol"],
+            };
         }
     }
 }

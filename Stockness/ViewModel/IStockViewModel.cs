@@ -1,9 +1,12 @@
-﻿namespace Stockness.ViewModel
+﻿using Stockness.Model;
+
+namespace Stockness.ViewModel
 {
     public interface IStockViewModel
     {
+        Stock Stock { set; }
         string StockName { get; }
-        string StockSymbol { get; set; }
+        string StockSymbol { get; }
         string ApplicationTitle { get; }
         double CurrPrice { get; }
         double PriceChange { get; }

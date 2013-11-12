@@ -1,4 +1,5 @@
 ﻿using GalaSoft.MvvmLight;
+using Stockness.Model;
 
 namespace Stockness.ViewModel.Design
 {
@@ -15,6 +16,11 @@ namespace Stockness.ViewModel.Design
                 return "Stockness";
             }
         }
+        public Stock Stock
+        {
+            private get;
+            set;
+        }
         public string StockName
         {
             get{
@@ -23,8 +29,10 @@ namespace Stockness.ViewModel.Design
         }
         public string StockSymbol
         {
-            get;
-            set;
+            get
+            {
+                return this.Stock.Symbol;
+            }
         }
         public double CurrPrice
         {

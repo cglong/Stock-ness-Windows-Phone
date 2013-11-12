@@ -5,8 +5,17 @@ namespace Stockness.ViewModel.Runtime
 {
     public class StockViewModel : NetworkViewModel, IStockViewModel
     {
-        private Stock _stock;
         private static string UriFormat = "http://localhost:5000/api/price?symbol={0}";
+
+        private Stock _stock;
+        public Stock Stock
+        {
+            set
+            {
+                Uri uri = new Uri(String.Format(UriFormat, value.Symbol));
+                _stock = GetObject<Stock>(uri);
+            }
+        }
 
         public string StockSymbol
         {
@@ -16,8 +25,7 @@ namespace Stockness.ViewModel.Runtime
             }
             set
             {
-                Uri uri = new Uri(String.Format(UriFormat, value));
-                _stock = GetObject<Stock>(uri);
+                
             }
         }
 
