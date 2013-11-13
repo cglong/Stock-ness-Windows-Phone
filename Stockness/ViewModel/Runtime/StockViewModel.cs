@@ -1,24 +1,28 @@
-﻿using Stockness.Model;
+﻿using RestSharp;
+using Stockness.Model;
 using System;
 
 namespace Stockness.ViewModel.Runtime
 {
     public class StockViewModel : NetworkViewModel, IStockViewModel
     {
-        private static string UriFormat = "http://localhost:5000/api/price?symbol={0}";
-
         public Stock Stock
         {
             set
             {
-                Uri uri = new Uri(String.Format(UriFormat, value.Symbol));
-                Stock stock = GetObject<Stock>(uri);
+                var request = new RestRequest("price");
+                request.AddParameter("symbol", value.Symbol);
+                request.RequestFormat = DataFormat.Json;
 
-                StockSymbol = stock.Symbol;
-                StockName = stock.CompanyName;
-                CurrPrice = stock.Price;
-                PriceChange = stock.PriceChange;
-                PercentChange = stock.Percentage;
+                GetObject<Stock>(request, response =>
+                {
+                    Stock stock = response.Data;
+                    StockSymbol = stock.Symbol;
+                    StockName = stock.CompanyName;
+                    CurrPrice = stock.Price;
+                    PriceChange = stock.PriceChange;
+                    PercentChange = stock.Percentage;
+                });
             }
         }
 
