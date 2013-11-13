@@ -1,6 +1,5 @@
 ﻿using RestSharp;
 using Stockness.Model;
-using System;
 
 namespace Stockness.ViewModel.Runtime
 {
