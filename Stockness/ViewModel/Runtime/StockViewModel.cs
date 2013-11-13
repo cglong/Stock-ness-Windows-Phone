@@ -11,10 +11,8 @@ namespace Stockness.ViewModel.Runtime
             set
             {
                 var request = new RestRequest("price");
-                request.AddParameter("symbol", value.Symbol);
                 request.RequestFormat = DataFormat.Json;
-
-                GetObject<Stock>(request, response =>
+                GetObject<Stock>(request, value, response =>
                 {
                     Stock stock = response.Data;
                     StockSymbol = stock.Symbol;
