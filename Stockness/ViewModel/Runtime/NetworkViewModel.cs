@@ -6,7 +6,7 @@ namespace Stockness.ViewModel.Runtime
 {
     public abstract class NetworkViewModel : ViewModelBase
     {
-        private IRestClient _client = new RestClient("http://localhost:9442/api");
+        private IRestClient _client = new RestClient("http://localhost:5000/api");
 
         protected void GetAsync<T>(string resource, T message, Action<IRestResponse<T>> callback) where T : new()
         {
