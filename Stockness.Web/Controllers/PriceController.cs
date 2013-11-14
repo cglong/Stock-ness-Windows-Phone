@@ -30,7 +30,7 @@ namespace Stockness.Web.Controllers
                         LastPrice = 517.67,
                     };
 
-                case "goog":
+                case "GOOG":
                     return new Stock
                     {
                         Symbol = symbol,
