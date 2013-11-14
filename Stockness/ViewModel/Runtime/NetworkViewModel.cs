@@ -18,6 +18,7 @@ namespace Stockness.ViewModel.Runtime
         protected void PostAsync<T>(string resource, T message, Action<IRestResponse<T>> callback) where T : new()
         {
             var request = new RestRequest(resource, Method.POST);
+            request.RequestFormat = DataFormat.Json;
             request.AddBody(message);
             SendAsync<T>(request, callback);
         }
