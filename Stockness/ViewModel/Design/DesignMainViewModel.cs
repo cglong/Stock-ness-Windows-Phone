@@ -49,66 +49,46 @@ namespace Stockness.ViewModel.Design
             }
         }
 
-        public IList<Position> Positions
+        public IList<Stock> Stocks
         {
             get
             {
-                return new List<Position>
+                return new List<Stock>
                 {
-                    new Position
+                    new Stock
                     {
-                        Stock = new Stock
-                        {
-                            Symbol = "MSFT",
-                            Price = 34.99,
-                            PriceChange = 0.83,
-                            Percentage = 2.37,
-                        },
-                        
+                        Symbol = "MSFT",
+                        Price = 34.99,
+                        PriceChange = 0.83,
+                        Percentage = 2.37,
                     },
-                    new Position 
+                    new Stock 
                     {
-                        Stock = new Stock
-                        {
-                            Symbol = "AAPL",
-                            Price = 517.79,
-                            PriceChange = -0.13,
-                            Percentage = -0.02,
-                        },
-                      
+                        Symbol = "AAPL",
+                        Price = 517.79,
+                        PriceChange = -0.13,
+                        Percentage = -0.02,
                     },
-                    new Position 
+                    new Stock 
                     {
-                        Stock = new Stock
-                        {
-                            Symbol = "GOOG",
-                            Price = 1003.27,
-                            PriceChange = -1.13,
-                            Percentage = -.11,
-                        },
-                       
+                        Symbol = "GOOG",
+                        Price = 1003.27,
+                        PriceChange = -1.13,
+                        Percentage = -.11,
                     },
-                    new Position 
+                    new Stock 
                     {
-                        Stock = new Stock
-                        {
-                            Symbol = "TWTR",
-                            Price = 0.00,
-                            PriceChange = 0.00,
-                            Percentage = 0.00,
-                        },
-                        
+                        Symbol = "TWTR",
+                        Price = 0.00,
+                        PriceChange = 0.00,
+                        Percentage = 0.00,
                     },
-                    new Position
+                    new Stock
                     {
-                        Stock = new Stock
-                        {
-                            Symbol = "YHOO",
-                            Price = 34.46,
-                            PriceChange = -0.31,
-                            Percentage = 0.90,
-                        },
-                       
+                        Symbol = "YHOO",
+                        Price = 34.46,
+                        PriceChange = -0.31,
+                        Percentage = 0.90,
                     },
                 };
             }

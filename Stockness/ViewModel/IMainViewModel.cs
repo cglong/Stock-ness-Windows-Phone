@@ -12,7 +12,7 @@ namespace Stockness.ViewModel
         string UserBalance { get; }
         string UserNetChange { get; }
 
-        IList<Position> Positions { get; }
+        IList<Stock> Stocks { get; }
 
         ICommand SearchCommand { get; }
         Uri SearchButtonIconUri { get; }

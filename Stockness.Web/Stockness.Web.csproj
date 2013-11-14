@@ -150,9 +150,6 @@
     <Compile Include="..\Stockness\Model\Portfolio.cs">
       <Link>Models\Portfolio.cs</Link>
     </Compile>
-    <Compile Include="..\Stockness\Model\Position.cs">
-      <Link>Models\Position.cs</Link>
-    </Compile>
     <Compile Include="..\Stockness\Model\Stock.cs">
       <Link>Models\Stock.cs</Link>
     </Compile>

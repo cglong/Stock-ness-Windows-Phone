@@ -4,8 +4,8 @@ namespace Stockness.Model
 {
     public class Portfolio
     {
-        public IList<Position> Positions { get; set; }
-        public double StartingBalance { get; set; }
-        public double TotalValue { get; set; }
+        public string Username { get; set; }
+        public double Value { get; set; }
+        public IList<Stock> Stocks { get; set; }
     }
 }
