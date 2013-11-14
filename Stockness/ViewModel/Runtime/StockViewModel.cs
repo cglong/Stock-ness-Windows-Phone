@@ -1,5 +1,4 @@
-﻿using RestSharp;
-using Stockness.Model;
+﻿using Stockness.Model;
 
 namespace Stockness.ViewModel.Runtime
 {
@@ -9,8 +8,7 @@ namespace Stockness.ViewModel.Runtime
         {
             set
             {
-                var request = new RestRequest("price");
-                GetAsync<Stock>(request, value, response =>
+                GetAsync<Stock>("price", value, response =>
                 {
                     Stock stock = response.Data;
                     StockSymbol = stock.Symbol;
