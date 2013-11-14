@@ -8,14 +8,14 @@ namespace Stockness.ViewModel.Runtime
     {
         private IRestClient _client = new RestClient("http://localhost:5000/api");
 
-        protected void GetAsync<T>(string resource, T message, Action<IRestResponse<T>> callback) where T : new()
+        protected void GetAsync<T>(string resource, object message, Action<IRestResponse<T>> callback) where T : new()
         {
             var request = new RestRequest(resource);
             request.AddObject(message);
             SendAsync<T>(request, callback);
         }
 
-        protected void PostAsync<T>(string resource, T message, Action<IRestResponse<T>> callback) where T : new()
+        protected void PostAsync<T>(string resource, object message, Action<IRestResponse<T>> callback) where T : new()
         {
             var request = new RestRequest(resource, Method.POST);
             request.RequestFormat = DataFormat.Json;
