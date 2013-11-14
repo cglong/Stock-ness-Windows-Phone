@@ -10,7 +10,7 @@ namespace Stockness.ViewModel.Runtime
             set
             {
                 var request = new RestRequest("price");
-                GetObject<Stock>(request, value, response =>
+                GetAsync<Stock>(request, value, response =>
                 {
                     Stock stock = response.Data;
                     StockSymbol = stock.Symbol;

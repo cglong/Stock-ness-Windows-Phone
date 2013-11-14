@@ -8,7 +8,7 @@ namespace Stockness.ViewModel.Runtime
     {
         private static string BaseUrl = "http://localhost:9442/api";
 
-        protected void GetObject<T>(RestRequest request, T message, Action<IRestResponse<T>> callback) where T : new()
+        protected void GetAsync<T>(RestRequest request, T message, Action<IRestResponse<T>> callback) where T : new()
         {
             var client = new RestClient(BaseUrl);
             request.AddObject(message);
