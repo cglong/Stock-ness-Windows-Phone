@@ -15,17 +15,23 @@ namespace Stockness.ViewModel.Runtime
             SendAsync<T>(request, callback);
         }
 
-        protected void PostAsync<T>(string resource, object message, Action<T> callback) where T : new()
+        protected void PostAsync(string resource, object message)
         {
             var request = new RestRequest(resource, Method.POST);
             request.RequestFormat = DataFormat.Json;
             request.AddBody(message);
-            SendAsync<T>(request, callback);
+            SendAsync<Status>(request, o => { });
         }
 
         private void SendAsync<T>(IRestRequest request, Action<T> callback) where T : new()
         {
             _client.ExecuteAsync<T>(request, response => callback(response.Data));
+        }
+
+        private class Status
+        {
+            public bool Success { get; set; }
+            public string Message { get; set; }
         }
     }
 }
