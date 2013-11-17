@@ -8,7 +8,7 @@ namespace Stockness.Web.Controllers
         public Stock Get(string symbol)
         {
             switch(symbol){
-                case "msft":
+                case "MSFT":
                     return new Stock
                     {
                         Symbol = symbol,
@@ -19,7 +19,7 @@ namespace Stockness.Web.Controllers
                         LastPrice = 37.38,
                     };
                     
-                case "aapl":
+                case "AAPL":
                     return new Stock
                     {
                         Symbol = symbol,
@@ -41,7 +41,7 @@ namespace Stockness.Web.Controllers
                         LastPrice = 1007.70,
                     };
 
-                case "twtr":
+                case "TWTR":
                     return new Stock
                     {
                         Symbol = symbol,
@@ -52,7 +52,7 @@ namespace Stockness.Web.Controllers
                         LastPrice = 43.66,
                     };
 
-                case "yhoo":
+                case "YHOO":
                     return new Stock
                     {
                         Symbol = symbol,
@@ -63,7 +63,7 @@ namespace Stockness.Web.Controllers
                         LastPrice = 34.00,
                     };
 
-                case "fb":
+                case "FB":
                     return new Stock
                     {
                         Symbol = symbol,

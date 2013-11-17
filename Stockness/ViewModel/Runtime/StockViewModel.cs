@@ -15,6 +15,7 @@ namespace Stockness.ViewModel.Runtime
                     CurrPrice = stock.Price;
                     PriceChange = stock.PriceChange;
                     PercentChange = stock.Percentage;
+                    LastPrice = stock.LastPrice;
                 });
             }
         }
@@ -94,6 +95,20 @@ namespace Stockness.ViewModel.Runtime
             private set
             {
                 Set<double>(PercentChangePropertyName, ref _percentChange, value);
+            }
+        }
+
+        private double _lastPrice;
+        private const string LastPricePropertyName = "LastPrice";
+        public double LastPrice
+        {
+            get
+            {
+                return _lastPrice;
+            }
+            private set
+            {
+                Set<double>(LastPricePropertyName, ref _lastPrice, value);
             }
         }
     }

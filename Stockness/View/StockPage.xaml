@@ -31,6 +31,7 @@
             <RowDefinition Height="60"/>
             <RowDefinition Height="60"/>
             <RowDefinition Height="60"/>
+            <RowDefinition Height="60"/>
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
@@ -55,10 +56,15 @@
                 	<Run Text="{Binding PriceChange}" Foreground="{Binding PriceChange, Converter={StaticResource PriceDeltaColorConverter}}"/>
                 	
         </TextBlock>
-        <TextBlock  Grid.Row="3" Grid.Column="0" FontSize="35" Margin="0,60,0,-60">
+        <TextBlock  Grid.Row="4" Grid.Column="0" FontSize="35">
                 	<Run Text="Percent Change: "/>
-                	<Run Text="{Binding PercentChange}" Foreground="#7fbf7f"/>
-                    <Run Text="%" Foreground="#7fbf7f"/>
+                	<Run Text="{Binding PercentChange}" Foreground="{Binding PercentChange, Converter={StaticResource PriceDeltaColorConverter}}"/>
+                    <Run Text="%" Foreground="{Binding PercentChange, Converter={StaticResource PriceDeltaColorConverter}}"/>
+        </TextBlock>
+        <TextBlock  Grid.Row="5" Grid.Column="0" FontSize="35">
+                	<Run Text="Last Price: "/>
+                	<Run Text="{Binding LastPrice}"/>
+            
         </TextBlock>
     </Grid>
 
