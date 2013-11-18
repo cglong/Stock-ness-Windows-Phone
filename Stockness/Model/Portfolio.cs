@@ -6,6 +6,6 @@ namespace Stockness.Model
     {
         public string Username { get; set; }
         public double Value { get; set; }
-        public IList<Stock> Stocks { get; set; }
+        public List<Stock> Stocks { get; set; }
     }
 }
