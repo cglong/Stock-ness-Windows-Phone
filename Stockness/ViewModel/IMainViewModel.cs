@@ -8,6 +8,7 @@ namespace Stockness.ViewModel
     public interface IMainViewModel
     {
         string ApplicationTitle { get; }
+        Account User { set; }
         string UserName { get; }
         string UserBalance { get; }
         string UserNetChange { get; }
