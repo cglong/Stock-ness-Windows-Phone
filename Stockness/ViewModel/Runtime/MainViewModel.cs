@@ -24,6 +24,7 @@ namespace Stockness.ViewModel.Runtime
                 {
                     UserName = portfolio.Username;
                     UserBalance = portfolio.Value.ToString();
+                    Stocks = portfolio.Stocks;
                 });
             }
         }
