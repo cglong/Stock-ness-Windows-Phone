@@ -1,11 +1,22 @@
-﻿using Stockness.Model;
+﻿using GalaSoft.MvvmLight.Command;
+using Stockness.Core;
+using Stockness.Model;
+using System;
 using System.Collections.Generic;
+using System.Windows.Input;
 
 namespace Stockness.ViewModel.Runtime
 {
     public class MainViewModel : NetworkViewModel, IMainViewModel
     {
-        public Portfolio User
+        private NavigationService _navigationService;
+
+        public MainViewModel(NavigationService navigationService)
+        {
+            _navigationService = navigationService;
+        }
+
+        public Account User
         {
             set
             {   //Missing userNetChange
@@ -65,7 +76,7 @@ namespace Stockness.ViewModel.Runtime
 
         private IList<Stock> _stocks;
         private const string StocksPropertyName = "Stocks";
-        IList<Stock> Stocks {
+        public IList<Stock> Stocks {
             get
             {
                 return _stocks;
@@ -76,5 +87,75 @@ namespace Stockness.ViewModel.Runtime
             }
         }
 
+        public ICommand SearchCommand
+        {
+            get
+            {
+                return new RelayCommand(NavigateToSearchPage);
+            }
+        }
+
+        private void NavigateToSearchPage()
+        {
+            _navigationService.NavigateTo(ViewModelLocator.SearchPageUri());
+        }
+
+        public Uri SearchButtonIconUri
+        {
+            get
+            {
+                return new Uri("/Images/SearchIcon.png", UriKind.Relative);
+            }
+        }
+
+        public string SearchButtonText
+        {
+            get
+            {
+                return "Search";
+            }
+        }
+
+        public ICommand StockCommand
+        {
+            get
+            {
+                return new RelayCommand<Stock>(NavigateToStockPage);
+            }
+        }
+
+        private void NavigateToStockPage(Stock stock)
+        {
+            _navigationService.NavigateTo(ViewModelLocator.StockPageUri(stock));
+        }
+
+        public ICommand TradeCommand
+        {
+            get
+            {
+                return new RelayCommand(NavigateToTradePage);
+            }
+        }
+
+        private void NavigateToTradePage()
+        {
+            _navigationService.NavigateTo(ViewModelLocator.TradePageUri());
+        }
+
+        public Uri TradeButtonIconUri
+        {
+            get
+            {
+                return new Uri("/Images/TradeIcon.png", UriKind.Relative);
+            }
+        }
+
+        public string TradeButtonText
+        {
+            get
+            {
+                return "Trade";
+            }
+        }
     }
 }

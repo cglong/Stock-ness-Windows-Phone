@@ -94,6 +94,12 @@ namespace Stockness.ViewModel.Design
             }
         }
 
+        public Account User
+        {
+            private get;
+            set;
+        }
+
         public ICommand SearchCommand
         {
             get
