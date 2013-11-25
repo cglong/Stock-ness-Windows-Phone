@@ -27,6 +27,7 @@ namespace Stockness.ViewModel.Runtime
             var request = new RestRequest(resource, Method.POST);
             request.RequestFormat = DataFormat.Json;
             request.AddBody(message);
+            request.RootElement = "status";
             SendAsync<Status>(request, o => { });
         }
 
