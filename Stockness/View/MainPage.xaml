@@ -85,7 +85,7 @@
                     
                 <!--Stock Tiles-->
                 <ListBox
-                    ItemsSource="{Binding Stocks}" SelectionChanged="ListBox_SelectionChanged">
+                    ItemsSource="{Binding Stocks}">
                     <ListBox.ItemsPanel>
                         <ItemsPanelTemplate>
                             <telerikPrimitives:RadWrapPanel/>

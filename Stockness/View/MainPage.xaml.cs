@@ -1,4 +1,6 @@
 ﻿using Microsoft.Phone.Controls;
+using System.Windows;
+using Telerik.Windows.Controls;
 
 namespace Stockness.View
 {
@@ -7,11 +9,26 @@ namespace Stockness.View
         public MainPage()
         {
             InitializeComponent();
+            DisplayLoginPrompt();
         }
 
-        private void ListBox_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        private void DisplayLoginPrompt()
         {
+            Style usernameStyle = new Style(typeof(RadTextBox));
+            usernameStyle.Setters.Add(new Setter(RadTextBox.HeaderProperty, "username"));
+            Style passwordStyle = new Style(typeof(RadPasswordBox));
+            passwordStyle.Setters.Add(new Setter(RadPasswordBox.HeaderProperty, "password"));
 
+            InputPromptSettings settings = new InputPromptSettings();
+            settings.Field1Mode = InputMode.Text;
+            settings.Field1Style = usernameStyle;
+            settings.Field2Mode = InputMode.Password;
+            settings.Field2Style = passwordStyle;
+
+            string messageTitle = "Stockness Monster";
+            string messageText = "Please enter your login information:";
+
+            RadInputPrompt.Show(settings, messageTitle, MessageBoxButtons.OKCancel, messageText);
         }
     }
 }
