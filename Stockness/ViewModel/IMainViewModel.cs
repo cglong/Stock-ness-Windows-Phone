@@ -24,5 +24,7 @@ namespace Stockness.ViewModel
         ICommand TradeCommand { get; }
         Uri TradeButtonIconUri { get; }
         string TradeButtonText { get; }
+
+        void LogIn(string username, string password);
     }
 }

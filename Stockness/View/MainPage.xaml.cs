@@ -1,4 +1,6 @@
 ﻿using Microsoft.Phone.Controls;
+using Stockness.ViewModel;
+using System;
 using System.Windows;
 using Telerik.Windows.Controls;
 
@@ -28,7 +30,12 @@ namespace Stockness.View
             string messageTitle = "Stockness Monster";
             string messageText = "Please enter your login information:";
 
-            RadInputPrompt.Show(settings, messageTitle, MessageBoxButtons.OKCancel, messageText);
+            RadInputPrompt.Show(settings, messageTitle, MessageBoxButtons.OKCancel, messageText, closedHandler:LogIn);
+        }
+
+        private void LogIn(InputPromptClosedEventArgs e)
+        {
+            (DataContext as IMainViewModel).LogIn(e.Text, e.Text2);
         }
     }
 }
