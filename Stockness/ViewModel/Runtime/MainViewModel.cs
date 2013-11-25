@@ -14,7 +14,7 @@ namespace Stockness.ViewModel.Runtime
         public MainViewModel(NavigationService navigationService)
         {
             _navigationService = navigationService;
-            PostAsync("login", new Login { Username = "heisenberg", Password = "BCpassword" });
+            PostAsync("login", new Login { username = "heisenberg", password = "BCpassword" });
         }
 
         public Account User
@@ -162,8 +162,8 @@ namespace Stockness.ViewModel.Runtime
 
         private class Login
         {
-            public string Username { get; set; }
-            public string Password { get; set; }
+            public string username { get; set; }
+            public string password { get; set; }
         }
     }
 }
