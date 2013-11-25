@@ -135,13 +135,13 @@ namespace Stockness.ViewModel.Runtime
         {
             get
             {
-                return new RelayCommand(NavigateToTradePage);
+                return new RelayCommand<Stock>(NavigateToTradePage);
             }
         }
 
-        private void NavigateToTradePage()
+        private void NavigateToTradePage(Stock stock)
         {
-            _navigationService.NavigateTo(ViewModelLocator.TradePageUri());
+            _navigationService.NavigateTo(ViewModelLocator.TradePageUri(stock));
         }
 
         public Uri TradeButtonIconUri

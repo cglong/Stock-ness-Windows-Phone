@@ -50,8 +50,8 @@
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
-                
-                <TextBlock Grid.Row="0" Text="Apple Inc." Foreground="#dddddd" FontSize="40"/>
+
+                <TextBlock Grid.Row="0" Text="{Binding StockName}" Foreground="#dddddd" FontSize="40"/>
                 <Grid Grid.Row="1">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
@@ -63,12 +63,13 @@
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
-                    <TextBlock Grid.Column="1" Grid.Row="0" HorizontalAlignment="Right" FontSize="28" Foreground="#dddddd" Text="517.79"/>
-                    <TextBlock Grid.Column="1" Grid.Row="1" HorizontalAlignment="Right" FontSize="20" Foreground="{Binding Stock.PriceDelta, Converter={StaticResource PriceDeltaColorConverter}}" Text="-0.13"/>
-                    <TextBlock Grid.Column="1" Grid.Row="2" HorizontalAlignment="Right" FontSize="20" Foreground="{Binding Stock.PriceDelta, Converter={StaticResource PriceDeltaColorConverter}}">
-                                                <Run Text="-0.02"/>
+                    <TextBlock Grid.Column="1" Grid.Row="0" HorizontalAlignment="Right" FontSize="28" Foreground="#dddddd" Text="{Binding CurrPrice}"/>
+                    <TextBlock Grid.Column="1" Grid.Row="1" HorizontalAlignment="Right" FontSize="20"  Text="{Binding PriceChange}" Foreground="{Binding PriceChange, Converter={StaticResource PriceDeltaColorConverter}}"/>
+                    <TextBlock Grid.Column="1" Grid.Row="2" HorizontalAlignment="Right" FontSize="20" Foreground="{Binding PercentChange, Converter={StaticResource PriceDeltaColorConverter}}">
+                                                <Run Text="{Binding PercentChange}"/>
                                                 <Run Text="%"/>
                     </TextBlock>
+                    <!--We need the number of shares the user owns.. pass in 2 parameters?-->
                     <TextBlock Grid.Column="0" Grid.Row="3" HorizontalAlignment="Left" FontSize="25" Foreground="#dddddd" Text="You Own: 3523 shares"/>
                 </Grid>
                
