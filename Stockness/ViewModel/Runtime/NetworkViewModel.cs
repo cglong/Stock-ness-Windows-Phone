@@ -1,12 +1,19 @@
 ﻿using GalaSoft.MvvmLight;
 using RestSharp;
 using System;
+using System.Net;
 
 namespace Stockness.ViewModel.Runtime
 {
     public abstract class NetworkViewModel : ViewModelBase
     {
         private IRestClient _client = new RestClient("http://localhost:5000/api");
+        private static CookieContainer _cookieContainer = new CookieContainer();
+
+        protected NetworkViewModel()
+        {
+            _client.CookieContainer = _cookieContainer;
+        }
 
         protected void GetAsync<T>(string resource, object message, Action<T> callback) where T : new()
         {
