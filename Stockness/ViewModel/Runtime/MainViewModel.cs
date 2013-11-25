@@ -18,20 +18,20 @@ namespace Stockness.ViewModel.Runtime
 
         public void LogIn(string username, string password)
         {
-            PostAsync("login", new Login { username = username, password = password });
-        }
-
-        public Account User
-        {
-            set
-            {   //Missing userNetChange
-                GetAsync<Portfolio>("portfolio", value, portfolio =>
+            var login = new Login
+            {
+                username = username,
+                password = password,
+            };
+            PostAsync("login", login, () =>
                 {
-                    UserName = portfolio.Username;
-                    UserBalance = portfolio.Value.ToString();
-                    Stocks = portfolio.Stocks;
+                    GetAsync<Portfolio>("portfolio", portfolio =>
+                        {
+                            UserName = portfolio.Username;
+                            UserBalance = portfolio.Value.ToString();
+                            Stocks = portfolio.Stocks;
+                        });
                 });
-            }
         }
 
         public string ApplicationTitle {

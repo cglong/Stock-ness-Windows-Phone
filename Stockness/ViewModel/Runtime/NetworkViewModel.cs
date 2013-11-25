@@ -15,6 +15,11 @@ namespace Stockness.ViewModel.Runtime
             _client.CookieContainer = _cookieContainer;
         }
 
+        protected void GetAsync<T>(string resource, Action<T> callback) where T : new()
+        {
+            GetAsync<T>(resource, new Object(), callback);
+        }
+
         protected void GetAsync<T>(string resource, object message, Action<T> callback) where T : new()
         {
             var request = new RestRequest(resource);
@@ -24,11 +29,16 @@ namespace Stockness.ViewModel.Runtime
 
         protected void PostAsync(string resource, object message)
         {
+            PostAsync(resource, message, () => { });
+        }
+
+        protected void PostAsync(string resource, object message, Action callback)
+        {
             var request = new RestRequest(resource, Method.POST);
             request.RequestFormat = DataFormat.Json;
             request.AddBody(message);
             request.RootElement = "status";
-            SendAsync<Status>(request, o => { });
+            SendAsync<Status>(request, o => callback());
         }
 
         private void SendAsync<T>(IRestRequest request, Action<T> callback) where T : new()
