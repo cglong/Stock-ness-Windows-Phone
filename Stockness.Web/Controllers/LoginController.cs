@@ -1,4 +1,5 @@
-﻿using System.Web.Http;
+﻿using System.Web;
+using System.Web.Http;
 
 namespace Stockness.Web.Controllers
 {
@@ -7,6 +8,7 @@ namespace Stockness.Web.Controllers
         // POST api/login
         public void Post([FromBody]string value)
         {
+            HttpContext.Current.Response.Cookies.Add(new HttpCookie("session", "Test"));
         }
     }
 }
