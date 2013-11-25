@@ -34,10 +34,14 @@ namespace Stockness.ViewModel.Runtime
 
         protected void PostAsync(string resource, object message, Action callback)
         {
-            var request = new RestRequest(resource, Method.POST);
-            request.RequestFormat = DataFormat.Json;
+            var request = new RestRequest
+            {
+                Resource = resource,
+                Method = Method.POST,
+                RequestFormat = DataFormat.Json,
+                RootElement = "status",
+            };
             request.AddBody(message);
-            request.RootElement = "status";
             SendAsync<Status>(request, o => callback());
         }
 
