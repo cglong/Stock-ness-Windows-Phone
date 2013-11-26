@@ -20,8 +20,8 @@ namespace Stockness.ViewModel.Runtime
         {
             var login = new Login
             {
-                username = username,
-                password = password,
+                Username = username,
+                Password = password,
             };
             PostAsync("login", login, () =>
                 {
@@ -166,8 +166,8 @@ namespace Stockness.ViewModel.Runtime
 
         private class Login
         {
-            public string username { get; set; }
-            public string password { get; set; }
+            public string Username { get; set; }
+            public string Password { get; set; }
         }
     }
 }
