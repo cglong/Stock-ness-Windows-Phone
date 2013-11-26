@@ -139,34 +139,5 @@ namespace Stockness.ViewModel.Design
         {
             _navigationService.NavigateTo(ViewModelLocator.StockPageUri(stock));
         }
-
-        public ICommand TradeCommand
-        {
-            get
-            {
-                return new RelayCommand<Stock>(NavigateToTradePage);
-            }
-        }
-
-        private void NavigateToTradePage(Stock stock)
-        {
-            _navigationService.NavigateTo(ViewModelLocator.TradePageUri(stock));
-        }
-
-        public Uri TradeButtonIconUri
-        {
-            get
-            {
-                return new Uri("/Images/TradeIcon.png", UriKind.Relative);
-            }
-        }
-
-        public string TradeButtonText
-        {
-            get
-            {
-                return "Trade";
-            }
-        }
     }
 }

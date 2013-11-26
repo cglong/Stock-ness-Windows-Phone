@@ -171,9 +171,6 @@
     
     <bar:Bindable.ApplicationBar>
         <bar:BindableApplicationBar>
-            <bar:BindableApplicationBarButton Text="{Binding TradeButtonText}"
-                                              IconUri="{Binding TradeButtonIconUri, FallbackValue=/Images/TradeIcon.png}"
-                                              Command="{Binding TradeCommand}"/>
             <bar:BindableApplicationBarButton Text="{Binding SearchButtonText}"
                                               IconUri="{Binding SearchButtonIconUri, FallbackValue=/Images/SearchIcon.png}"
                                               Command="{Binding SearchCommand}"/>
