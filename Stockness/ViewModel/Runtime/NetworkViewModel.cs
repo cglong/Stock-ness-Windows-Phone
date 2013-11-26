@@ -22,7 +22,10 @@ namespace Stockness.ViewModel.Runtime
 
         protected void GetAsync<T>(string resource, string message, Action<T> callback) where T : new()
         {
-            resource += !String.IsNullOrEmpty(message) ? "/" + message : "";
+            if (!String.IsNullOrEmpty(message))
+            {
+                resource += "/" + message;
+            }
             var request = new RestRequest(resource);
             SendAsync<T>(request, callback);
         }
