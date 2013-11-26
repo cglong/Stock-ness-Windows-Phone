@@ -1,4 +1,5 @@
 ﻿using GalaSoft.MvvmLight;
+using System.Windows.Input;
 
 namespace Stockness.ViewModel.Design
 {
@@ -6,6 +7,14 @@ namespace Stockness.ViewModel.Design
     {
         public DesignSearchViewModel()
         {
+        }
+
+        public ICommand SearchCommand
+        {
+            get
+            {
+                return null;
+            }
         }
     }
 }

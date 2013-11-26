@@ -104,6 +104,7 @@
     <Compile Include="ViewModel\ISearchViewModel.cs" />
     <Compile Include="ViewModel\IStockViewModel.cs" />
     <Compile Include="ViewModel\ITradeViewModel.cs" />
+    <Compile Include="ViewModel\Runtime\SearchViewModel.cs" />
     <Compile Include="ViewModel\Runtime\TradeViewModel.cs" />
     <Compile Include="ViewModel\Runtime\MainViewModel.cs" />
     <Compile Include="ViewModel\Runtime\NetworkViewModel.cs" />
