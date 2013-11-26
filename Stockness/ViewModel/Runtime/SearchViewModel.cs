@@ -17,11 +17,11 @@ namespace Stockness.ViewModel.Runtime
         {
             get
             {
-                return new RelayCommand<string>(NavigateToSearchPage);
+                return new RelayCommand<string>(Search);
             }
         }
 
-        private void NavigateToSearchPage(string query)
+        private void Search(string query)
         {
         }
     }
