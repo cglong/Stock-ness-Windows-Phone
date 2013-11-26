@@ -7,7 +7,13 @@
         public string Market { get; set; }
         public double Price { get; set; }
         public double PriceChange { get; set; }
-        public double LastPrice { get; set; }
         public double Percentage { get; set; }
+        public double LastPrice
+        {
+            get
+            {
+                return Price - PriceChange;
+            }
+        }
     }
 }
