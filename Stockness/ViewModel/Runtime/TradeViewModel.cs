@@ -8,7 +8,7 @@ namespace Stockness.ViewModel.Runtime
         {
             set
             {
-                GetAsync<Stock>("price", value, stock =>
+                GetAsync<Stock>("price", value.Symbol, stock =>
                 {
                     StockSymbol = stock.Symbol;
                     StockName = stock.CompanyName;

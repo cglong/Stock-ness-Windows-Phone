@@ -17,13 +17,13 @@ namespace Stockness.ViewModel.Runtime
 
         protected void GetAsync<T>(string resource, Action<T> callback) where T : new()
         {
-            GetAsync<T>(resource, new Object(), callback);
+            GetAsync<T>(resource, null, callback);
         }
 
-        protected void GetAsync<T>(string resource, object message, Action<T> callback) where T : new()
+        protected void GetAsync<T>(string resource, string message, Action<T> callback) where T : new()
         {
+            resource += message != null ? "/" + message : "";
             var request = new RestRequest(resource);
-            request.AddObject(message);
             SendAsync<T>(request, callback);
         }
 

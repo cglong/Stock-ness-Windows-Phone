@@ -5,13 +5,13 @@ namespace Stockness.Web.Controllers
 {
     public class PriceController : ApiController
     {
-        public Stock Get(string symbol)
+        public Stock Get(string id)
         {
-            switch(symbol){
+            switch(id){
                 case "MSFT":
                     return new Stock
                     {
-                        Symbol = symbol,
+                        Symbol = id,
                         CompanyName = "Microsoft Corporation",
                         Price = 37.36,
                         PriceChange = -0.23,
@@ -21,7 +21,7 @@ namespace Stockness.Web.Controllers
                 case "AAPL":
                     return new Stock
                     {
-                        Symbol = symbol,
+                        Symbol = id,
                         CompanyName = "Apple Inc.",
                         Price = 520.01,
                         PriceChange = 0.96,
@@ -31,7 +31,7 @@ namespace Stockness.Web.Controllers
                 case "GOOG":
                     return new Stock
                     {
-                        Symbol = symbol,
+                        Symbol = id,
                         CompanyName = "Google Inc.",
                         Price = 1011.78,
                         PriceChange = 1.19,
@@ -41,7 +41,7 @@ namespace Stockness.Web.Controllers
                 case "TWTR":
                     return new Stock
                     {
-                        Symbol = symbol,
+                        Symbol = id,
                         CompanyName = "Twitter Inc.",
                         Price = 41.90,
                         PriceChange = -1.00,
@@ -51,7 +51,7 @@ namespace Stockness.Web.Controllers
                 case "YHOO":
                     return new Stock
                     {
-                        Symbol = symbol,
+                        Symbol = id,
                         CompanyName = "Yahoo! Inc.",
                         Price = 34.07,
                         PriceChange = 0.26,
@@ -61,7 +61,7 @@ namespace Stockness.Web.Controllers
                 case "FB":
                     return new Stock
                     {
-                        Symbol = symbol,
+                        Symbol = id,
                         CompanyName = "Facebook Inc.",
                         Price = 46.60,
                         PriceChange = 0.40,
@@ -71,7 +71,7 @@ namespace Stockness.Web.Controllers
                 default:
                     return new Stock
                     {
-                        Symbol = symbol,
+                        Symbol = id,
                         //CompanyName = "Data Unknown",
                         Price = 0,
                         PriceChange = 0,
