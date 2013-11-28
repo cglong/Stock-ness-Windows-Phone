@@ -7,7 +7,7 @@ namespace Stockness.ViewModel.Runtime
 {
     public abstract class NetworkViewModel : ViewModelBase
     {
-        private IRestClient _client = new RestClient("http://localhost:5000/api");
+        private IRestClient _client = new RestClient("http://stockness-monster.herokuapp.com/api");
         private static CookieContainer _cookieContainer = new CookieContainer();
 
         protected NetworkViewModel()
@@ -26,7 +26,11 @@ namespace Stockness.ViewModel.Runtime
             {
                 resource += "/" + message;
             }
-            var request = new RestRequest(resource);
+            var request = new RestRequest
+            {
+                Resource = resource,
+                RootElement = "data",
+            };
             SendAsync<T>(request, callback);
         }
 
