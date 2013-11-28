@@ -1,5 +1,9 @@
-﻿using GalaSoft.MvvmLight.Command;
+﻿using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Command;
 using Stockness.Core;
+using Stockness.Model;
+using System;
+using System.Collections.Generic;
 using System.Windows.Input;
 
 namespace Stockness.ViewModel.Runtime
@@ -23,6 +27,8 @@ namespace Stockness.ViewModel.Runtime
 
         private void Search(string query)
         {
+           Stock s = new Stock{Symbol = query, };
+            _navigationService.NavigateTo(ViewModelLocator.StockPageUri(s));
         }
     }
 }
