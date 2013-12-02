@@ -16,6 +16,8 @@ namespace Stockness.ViewModel.Design
         {
         }
 
+        public IList<Stock> Results { get; private set; }
+
         public ICommand SearchCommand
         {
             get
