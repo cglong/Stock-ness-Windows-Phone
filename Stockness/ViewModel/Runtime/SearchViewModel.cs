@@ -32,6 +32,18 @@ namespace Stockness.ViewModel.Runtime
             }
         }
 
+        public Stock SelectedResult
+        {
+            get
+            {
+                return null;
+            }
+            set
+            {
+                _navigationService.NavigateTo(ViewModelLocator.StockPageUri(value));
+            }
+        }
+
         public ICommand SearchCommand
         {
             get
