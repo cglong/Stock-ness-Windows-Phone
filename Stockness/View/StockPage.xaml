@@ -44,7 +44,7 @@
         <StackPanel Grid.Row="1"
                     Margin="12,0,12,0">
             <TextBlock Style="{StaticResource PhoneTextExtraLargeStyle}">
-            		<Run Text="Current Price"/>
+            		<Run Text="current price"/>
 
             </TextBlock>
             <TextBlock Style="{StaticResource PhoneTextLargeStyle}">
@@ -53,14 +53,14 @@
 
             </TextBlock>
             <TextBlock Style="{StaticResource PhoneTextExtraLargeStyle}">
-                	<Run Text="Price Change"/>
+                	<Run Text="price change"/>
 
             </TextBlock>
             <TextBlock Style="{StaticResource PhoneTextLargeStyle}">
                 	<Run Text="{Binding PriceChange}" Foreground="{Binding PriceChange, Converter={StaticResource PriceDeltaColorConverter}}"/>
             </TextBlock>
             <TextBlock Style="{StaticResource PhoneTextExtraLargeStyle}">
-                	<Run Text="Percent Change"/>
+                	<Run Text="percent change"/>
             </TextBlock>
             <TextBlock Style="{StaticResource PhoneTextLargeStyle}">
                 	
@@ -68,7 +68,7 @@
                     <Run Text="%" Foreground="{Binding PercentChange, Converter={StaticResource PriceDeltaColorConverter}}"/>
             </TextBlock>
             <TextBlock Style="{StaticResource PhoneTextExtraLargeStyle}">
-                	<Run Text="Last Price"/>
+                	<Run Text="last price"/>
 
             </TextBlock>
             <TextBlock Style="{StaticResource PhoneTextLargeStyle}">
