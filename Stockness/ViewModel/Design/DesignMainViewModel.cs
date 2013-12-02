@@ -25,19 +25,19 @@ namespace Stockness.ViewModel.Design
             }
         }
 
-        public string UserBalance
+        public double UserBalance
         {
             get
             {
-                return "$1,333,337";
+                return 1333337;
             }
         }
 
-        public string UserNetChange
+        public double UserNetChange
         {
             get
             {
-                return "8%";
+                return 8;
             }
         }
 

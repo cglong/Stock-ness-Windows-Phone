@@ -30,7 +30,7 @@ namespace Stockness.ViewModel.Runtime
                     GetAsync<Portfolio>("portfolio", portfolio =>
                         {
                             UserName = portfolio.Username;
-                            UserBalance = portfolio.Value.ToString();
+                            UserBalance = portfolio.Value;
                             Stocks = portfolio.Stocks;
                         });
                 });
@@ -56,29 +56,29 @@ namespace Stockness.ViewModel.Runtime
             }
         }
 
-        private string _userBalance;
+        private double _userBalance;
         private const string UserBalancePropertyName = "UserBalance";
-        public string UserBalance {
+        public double UserBalance {
             get
             {
                 return _userBalance;
             }
             private set
             {
-                Set<string>(UserBalancePropertyName, ref _userBalance, value);
+                Set<double>(UserBalancePropertyName, ref _userBalance, value);
             }
         }
 
-        private string _userNetChange;
+        private double _userNetChange;
         private const string UserNetChangePropertyName = "UserNetChange";
-        public string UserNetChange {
+        public double UserNetChange {
             get
             {
                 return _userNetChange;
             }
             private set
             {
-                Set<string>(UserNetChangePropertyName, ref _userNetChange, value);
+                Set<double>(UserNetChangePropertyName, ref _userNetChange, value);
             }
         }
 

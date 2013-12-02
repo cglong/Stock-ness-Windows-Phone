@@ -9,8 +9,8 @@ namespace Stockness.ViewModel
     {
         string ApplicationTitle { get; }
         string UserName { get; }
-        string UserBalance { get; }
-        string UserNetChange { get; }
+        double UserBalance { get; }
+        double UserNetChange { get; }
 
         IList<Stock> Stocks { get; }
 

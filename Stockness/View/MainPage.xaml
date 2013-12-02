@@ -72,11 +72,12 @@
                                 </Grid.ColumnDefinitions>
                                 <TextBlock Grid.Row="0" FontSize="20" HorizontalAlignment="Right">
                                     <Run Text=" Your Balance: "/>
-                                    <Run Text="{Binding UserBalance}"/>
+                                    <Run Text="{Binding UserBalance, StringFormat=C2}"/>
                                 </TextBlock>
                                 <TextBlock Grid.Row="1" FontSize="20" HorizontalAlignment="Right">
                                     <Run Text="Net Change: "/>
-                                    <Run Text="{Binding UserNetChange}"/>
+                                    <Run Text="{Binding UserNetChange, StringFormat=N2}"/>
+                                    <Run Text=" %"/>
                                 </TextBlock>
                             </Grid>
                         </Grid>
