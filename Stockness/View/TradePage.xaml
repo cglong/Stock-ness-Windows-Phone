@@ -71,7 +71,7 @@
                                                 <Run Text="%"/>
                     </TextBlock>
                     <!--We need the number of shares the user owns.. pass in 2 parameters?-->
-                    <TextBlock Grid.Column="0" Grid.Row="3" HorizontalAlignment="Left" FontSize="25" Foreground="#dddddd" Text="You Own: 3523 shares"/>
+                    <TextBlock Grid.Column="0" Grid.Row="3" HorizontalAlignment="Left" FontSize="25" Foreground="#dddddd" Text="You Own: -- shares"/>
                 </Grid>
                
             </Grid>
