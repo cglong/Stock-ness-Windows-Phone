@@ -4,12 +4,12 @@ namespace Stockness.Model
 {
     public class Transaction
     {
-        public Transaction(Stock stock, int quantity)
+        public Transaction(string symbol, int quantity)
         {
-            this.Stock = stock;
+            this.Stock = symbol;
             this.Quantity = quantity;
         }
-        public Stock Stock { get; set; }
+        public string Stock { get; set; }
         public int Quantity { get; set; }
     }
 }

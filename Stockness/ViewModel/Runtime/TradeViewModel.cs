@@ -171,7 +171,7 @@ namespace Stockness.ViewModel.Runtime
         {
             try
             {
-                PostAsync("sell", new Transaction(stock, int.Parse(this.Quantity)), () => 
+                PostAsync("sell", new Transaction(stock.Symbol, int.Parse(this.Quantity)), () => 
                 {
                     NavigateToMainPage();
                 });
@@ -186,7 +186,7 @@ namespace Stockness.ViewModel.Runtime
         {
             try
             {
-                PostAsync("buy", new Transaction(stock, int.Parse(this.Quantity)), () => 
+                PostAsync("buy", new Transaction(stock.Symbol, int.Parse(this.Quantity)), () => 
                 {
                     NavigateToMainPage();
                 });
