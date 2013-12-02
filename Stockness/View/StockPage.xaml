@@ -50,7 +50,7 @@
             </TextBlock>
             <TextBlock Style="{StaticResource PhoneTextLargeStyle}">
             		
-            		<Run Text="{Binding CurrPrice}"/>
+            		<Run Text="{Binding CurrPrice, StringFormat=C2}"/>
 
             </TextBlock>
             <TextBlock Style="{StaticResource PhoneTextExtraLargeStyle}">
@@ -58,14 +58,14 @@
 
             </TextBlock>
             <TextBlock Style="{StaticResource PhoneTextLargeStyle}">
-                	<Run Text="{Binding PriceChange}" Foreground="{Binding PriceChange, Converter={StaticResource PriceDeltaColorConverter}}"/>
+                	<Run Text="{Binding PriceChange, StringFormat=C2}" Foreground="{Binding PriceChange, Converter={StaticResource PriceDeltaColorConverter}}"/>
             </TextBlock>
             <TextBlock Style="{StaticResource PhoneTextExtraLargeStyle}">
                 	<Run Text="percent change"/>
             </TextBlock>
             <TextBlock Style="{StaticResource PhoneTextLargeStyle}">
                 	
-                	<Run Text="{Binding PercentChange}" Foreground="{Binding PercentChange, Converter={StaticResource PriceDeltaColorConverter}}"/>
+                	<Run Text="{Binding PercentChange, StringFormat=N2}" Foreground="{Binding PercentChange, Converter={StaticResource PriceDeltaColorConverter}}"/>
                     <Run Text="%" Foreground="{Binding PercentChange, Converter={StaticResource PriceDeltaColorConverter}}"/>
             </TextBlock>
             <TextBlock Style="{StaticResource PhoneTextExtraLargeStyle}">
@@ -73,7 +73,7 @@
 
             </TextBlock>
             <TextBlock Style="{StaticResource PhoneTextLargeStyle}">
-                	<Run Text="{Binding LastPrice}"/>
+                	<Run Text="{Binding LastPrice, StringFormat=C2}"/>
 
             </TextBlock>
         </StackPanel>
