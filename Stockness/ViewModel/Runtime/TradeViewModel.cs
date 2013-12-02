@@ -1,9 +1,15 @@
 ﻿using Stockness.Model;
+using System;
+using System.Windows.Input;
+using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Command;
 
 namespace Stockness.ViewModel.Runtime
 {
     public class TradeViewModel : NetworkViewModel, ITradeViewModel
     {
+        private Stock _stock;
+        private const string StockPropertyName = "Stock";
         public Stock Stock
         {
             set
@@ -16,6 +22,7 @@ namespace Stockness.ViewModel.Runtime
                     PriceChange = stock.PriceChange;
                     PercentChange = stock.Percentage;
                     LastPrice = stock.LastPrice;
+                    _stock = stock;
                 });
             }
         }
@@ -110,6 +117,34 @@ namespace Stockness.ViewModel.Runtime
             {
                 Set<double>(LastPricePropertyName, ref _lastPrice, value);
             }
+        }
+
+        public string Quantity
+        {
+            get;
+            set;
+        }
+
+        public string Action
+        {
+            get;
+            set;
+        }
+
+
+        public ICommand TradeCommand
+        {
+            get
+            {
+                return new RelayCommand<Stock>(Trade);
+            }
+        }
+
+        private void Trade(Stock stock)
+        {
+            PostAsync(this.Action,
+                      new Transaction(stock, int.Parse(this.Quantity))
+            );
         }
     }
 }

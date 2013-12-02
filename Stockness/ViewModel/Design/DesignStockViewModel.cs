@@ -1,14 +1,21 @@
 ﻿using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Command;
+using Stockness.Core;
 using Stockness.Model;
+using System;
+using System.Windows.Input;
 
 namespace Stockness.ViewModel.Design
 {
     public class DesignStockViewModel : ViewModelBase, IStockViewModel
     {
-       
-        public DesignStockViewModel()
+        private NavigationService _navigationService;
+
+         public DesignStockViewModel(NavigationService navigationService)
         {
+            _navigationService = navigationService;
         }
+
         public string ApplicationTitle
         {
             get
@@ -55,5 +62,35 @@ namespace Stockness.ViewModel.Design
                 return 0.18;
             }
         }
+
+        public ICommand TradeCommand
+        {
+            get
+            {
+                return new RelayCommand<Stock>(NavigateToTradePage);
+            }
+        }
+
+        private void NavigateToTradePage(Stock stock)
+        {
+            _navigationService.NavigateTo(ViewModelLocator.TradePageUri(stock));
+        }
+
+        public Uri TradeButtonIconUri
+        {
+            get
+            {
+                return new Uri("/Images/TradeIcon.png", UriKind.Relative);
+            }
+        }
+
+        public string TradeButtonText
+        {
+            get
+            {
+                return "Trade";
+            }
+        }
+
     }
 }

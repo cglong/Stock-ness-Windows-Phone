@@ -40,6 +40,7 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <Grid Grid.Row="0" Margin="0,0,0,10">
                 <TextBlock Text="Selected Stock:" FontSize="30"/>
@@ -79,18 +80,24 @@
             <Grid Grid.Row="2" Margin="0,40,0,0">
                 <StackPanel>
                     <TextBlock Text="# of shares to trade/sell:" FontSize="28"></TextBlock>
-                    <TextBox Text="0"></TextBox>
+                    <TextBox Text="{Binding Quantity,Mode=TwoWay}"></TextBox>
                 </StackPanel>
             </Grid>
             
             <Grid Grid.Row="3" Margin="0,40,0,0"> 
-                
-                <telerikPrimitives:RadPickerBox Content="Select Action">
-                    <ListBox x:Name="countriesListBox" Background="Black" Padding="20">
-                        <ListBoxItem Content="Buy" IsSelected="True" />
-                        <ListBoxItem Content="Sell"/>
+                <telerikPrimitives:RadPickerBox Content="{Binding Action, Mode=TwoWay, ElementName=actionListBox, Path=SelectedItem.Content}">
+                    <ListBox x:Name="actionListBox" Background="Black" Padding="20">
+                        <ListBoxItem Content="buy" IsSelected="True" />
+                        <ListBoxItem Content="sell"/>
                     </ListBox>
                 </telerikPrimitives:RadPickerBox>
+            </Grid>
+            
+            <Grid Grid.Row="4" Margin="0,40,0,0">
+                <Button Command="{Binding DataContext.TradeCommand}"
+                                CommandParameter="{Binding BindsDirectlyToSource=True}">
+                    Submit
+                </Button>
             </Grid>
 
         </Grid>

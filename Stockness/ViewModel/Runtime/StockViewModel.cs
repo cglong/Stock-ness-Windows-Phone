@@ -1,9 +1,21 @@
-﻿using Stockness.Model;
+﻿using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Command;
+using Stockness.Core;
+using Stockness.Model;
+using System;
+using System.Windows.Input;
 
 namespace Stockness.ViewModel.Runtime
 {
     public class StockViewModel : NetworkViewModel, IStockViewModel
     {
+        private NavigationService _navigationService;
+
+         public StockViewModel(NavigationService navigationService)
+        {
+            _navigationService = navigationService;
+        }
+
         public Stock Stock
         {
             set
@@ -111,5 +123,35 @@ namespace Stockness.ViewModel.Runtime
                 Set<double>(LastPricePropertyName, ref _lastPrice, value);
             }
         }
+
+        public ICommand TradeCommand
+        {
+            get
+            {
+                return new RelayCommand<Stock>(NavigateToTradePage);
+            }
+        }
+
+        private void NavigateToTradePage(Stock stock)
+        {
+            _navigationService.NavigateTo(ViewModelLocator.TradePageUri(stock));
+        }
+
+        public Uri TradeButtonIconUri
+        {
+            get
+            {
+                return new Uri("/Images/TradeIcon.png", UriKind.Relative);
+            }
+        }
+
+        public string TradeButtonText
+        {
+            get
+            {
+                return "Trade";
+            }
+        }
+
     }
 }

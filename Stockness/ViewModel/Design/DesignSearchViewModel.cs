@@ -12,8 +12,9 @@ namespace Stockness.ViewModel.Design
     {
         private NavigationService _navigationService;
 
-        public DesignSearchViewModel()
+        public DesignSearchViewModel(NavigationService navigationService)
         {
+            _navigationService = navigationService;
         }
 
         public ICommand SearchCommand

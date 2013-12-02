@@ -57,7 +57,7 @@ namespace Stockness.ViewModel.Runtime
             _client.ExecuteAsync<T>(request, response => callback(response.Data));
         }
 
-        private class Status
+        public class Status
         {
             public bool Success { get; set; }
             public string Message { get; set; }

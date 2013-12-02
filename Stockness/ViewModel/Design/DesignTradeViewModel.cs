@@ -1,5 +1,8 @@
-﻿using GalaSoft.MvvmLight;
-using Stockness.Model;
+﻿using Stockness.Model;
+using System;
+using System.Windows.Input;
+using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Command;
 
 namespace Stockness.ViewModel.Design
 {
@@ -16,11 +19,25 @@ namespace Stockness.ViewModel.Design
                 return "Stockness";
             }
         }
+
+        public string Quantity
+        {
+            get;
+            set;
+        }
+
+        public string Action
+        {
+            get;
+            set;
+        }
+
         public Stock Stock
         {
             private get;
             set;
         }
+
         public string StockName
         {
             get
@@ -55,6 +72,19 @@ namespace Stockness.ViewModel.Design
             {
                 return 0.18;
             }
+        }
+
+        public ICommand TradeCommand
+        {
+            get
+            {
+                return new RelayCommand(Trade);
+            }
+        }
+
+        private void Trade()
+        {
+ 
         }
     }
 }
