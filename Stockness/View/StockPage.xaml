@@ -19,6 +19,7 @@
     <phone:PhoneApplicationPage.Resources>
         <core:LowercaseValueConverter x:Key="LowercaseValueConverter"/>
         <core:PriceDeltaColorConverter x:Key="PriceDeltaColorConverter"/>
+        <core:UppercaseValueConverter x:Key="UppercaseValueConverter"/>
     </phone:PhoneApplicationPage.Resources>
 
     <Grid>
@@ -29,17 +30,19 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
+        
+        <StackPanel Margin="12,17,0,28">
+            <TextBlock Text="{Binding StockName, Converter={StaticResource UppercaseValueConverter}}"
+                       Style="{StaticResource PhoneTextNormalStyle}"
+                       Foreground="#818ba6"/>
+            <TextBlock Text="{Binding StockSymbol, Converter={StaticResource LowercaseValueConverter}}"
+                       Margin="9,-7,0,0"
+                       Style="{StaticResource PhoneTextTitle1Style}"
+                       Foreground="#818ba6"/>
+        </StackPanel>
 
         <StackPanel Grid.Row="1"
                     Margin="12,0,12,0">
-            <TextBlock Grid.Row="0" Grid.Column="0" FontSize="45">
-            		<Run Text="{Binding StockName}" Foreground="#818ba6" />
-
-            </TextBlock>
-            <TextBlock FontSize="35">
-            		<Run Text="{Binding StockSymbol}" Foreground="#818ba6"/>
-
-            </TextBlock>
             <TextBlock FontSize="35">
             		<Run Text="Current Price: "/>
 
