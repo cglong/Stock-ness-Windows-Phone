@@ -29,7 +29,7 @@ namespace Stockness.ViewModel
                 SimpleIoc.Default.Register<IMainViewModel, MainViewModel>();
                 SimpleIoc.Default.Register<ISearchViewModel, SearchViewModel>();
                 SimpleIoc.Default.Register<IStockViewModel, StockViewModel>();
-                SimpleIoc.Default.Register<ITradeViewModel, DesignTradeViewModel>();
+                SimpleIoc.Default.Register<ITradeViewModel, TradeViewModel>();
             }
         }
 
