@@ -32,8 +32,10 @@
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel>
-                            <TextBlock Text="{Binding Symbol}" Foreground="White"/>
-                            <TextBlock Text="{Binding CompanyName}"/>
+                            <TextBlock Text="{Binding Symbol}"
+                                       Style="{StaticResource PhoneTextLargeStyle}"/>
+                            <TextBlock Text="{Binding CompanyName}"
+                                       Style="{StaticResource PhoneTextSmallStyle}"/>
                         </StackPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
