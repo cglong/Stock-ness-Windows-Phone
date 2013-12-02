@@ -16,6 +16,8 @@ namespace Stockness.ViewModel.Runtime
             _navigationService = navigationService;
         }
 
+        private Stock _stock;
+        private const string StockPropertyName = "Stock";
         public Stock Stock
         {
             set
@@ -28,7 +30,13 @@ namespace Stockness.ViewModel.Runtime
                     PriceChange = stock.PriceChange;
                     PercentChange = stock.Percentage;
                     LastPrice = stock.LastPrice;
+                    Set<Stock>(StockPropertyName, ref _stock, stock);
                 });
+            }
+
+            get
+            {
+                return _stock;
             }
         }
 

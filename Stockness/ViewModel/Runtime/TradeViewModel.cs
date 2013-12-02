@@ -8,8 +8,7 @@ namespace Stockness.ViewModel.Runtime
 {
     public class TradeViewModel : NetworkViewModel, ITradeViewModel
     {
-        private Stock _stock;
-        private const string StockPropertyName = "Stock";
+
         public Stock Stock
         {
             set
@@ -22,7 +21,6 @@ namespace Stockness.ViewModel.Runtime
                     PriceChange = stock.PriceChange;
                     PercentChange = stock.Percentage;
                     LastPrice = stock.LastPrice;
-                    _stock = stock;
                 });
             }
         }
