@@ -19,7 +19,5 @@ namespace Stockness.ViewModel
         string SearchButtonText { get; }
 
         ICommand StockCommand { get; }
-
-        void LogIn(string username, string password);
     }
 }

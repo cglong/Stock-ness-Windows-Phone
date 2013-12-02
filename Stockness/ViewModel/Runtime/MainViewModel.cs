@@ -1,4 +1,5 @@
 ﻿using GalaSoft.MvvmLight.Command;
+using GalaSoft.MvvmLight.Messaging;
 using Stockness.Core;
 using Stockness.Model;
 using System;
@@ -14,14 +15,15 @@ namespace Stockness.ViewModel.Runtime
         public MainViewModel(NavigationService navigationService)
         {
             _navigationService = navigationService;
+            Messenger.Default.Register<LoginMessage>(this, LogIn);
         }
 
-        public void LogIn(string username, string password)
+        private void LogIn(LoginMessage message)
         {
             var login = new Login
             {
-                Username = username,
-                Password = password,
+                Username = message.Username,
+                Password = message.Password,
             };
             PostAsync("login", login, () =>
                 {
