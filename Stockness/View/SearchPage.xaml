@@ -22,8 +22,9 @@
         </Grid.RowDefinitions>
         
         <StackPanel Margin="0,17,0,28">
-            <telerikPrimitives:RadTextBox ActionButtonVisibility="Visible" ActionButtonCommand="{Binding SearchCommand}"
-                                          ExecuteActionOnReturn="True"/>
+            <telerikPrimitives:RadTextBox ActionButtonCommand="{Binding SearchCommand}"
+                                          ExecuteActionOnReturn="True"
+                                          Watermark="search"/>
         </StackPanel>
         
         <Grid Grid.Row="1"
