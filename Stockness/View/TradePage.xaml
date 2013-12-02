@@ -71,7 +71,7 @@
                                                 <Run Text="%"/>
                     </TextBlock>
                     <!--We need the number of shares the user owns.. pass in 2 parameters?-->
-                    <TextBlock Grid.Column="0" Grid.Row="3" HorizontalAlignment="Left" FontSize="25" Foreground="#dddddd" Text="You Own: 3523 shares"/>
+                    <TextBlock Grid.Column="0" Grid.Row="3" HorizontalAlignment="Left" FontSize="25" Foreground="#dddddd" Text="You Own: -- shares"/>
                 </Grid>
                
             </Grid>
@@ -85,15 +85,15 @@
             </Grid>
             
             <Grid Grid.Row="3" Margin="0,100,0,0">
-                <Button Command="{Binding DataContext.SellCommand}"
-                                CommandParameter="{Binding BindsDirectlyToSource=True}">
+                <Button Command="{Binding SellCommand}"
+                                CommandParameter="{Binding Stock}">
                     Sell
                 </Button>
             </Grid>
             
             <Grid Grid.Row="4" Margin="0,0,0,0">
-                <Button Command="{Binding DataContext.BuyCommand}"
-                                CommandParameter="{Binding BindsDirectlyToSource=True}">
+                <Button Command="{Binding BuyCommand}"
+                                CommandParameter="{Binding Stock}">
                     Buy
                 </Button>
             </Grid>

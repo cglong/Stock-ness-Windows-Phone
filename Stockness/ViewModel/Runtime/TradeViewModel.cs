@@ -3,12 +3,22 @@ using System;
 using System.Windows.Input;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
+using Stockness.Core;
 
 namespace Stockness.ViewModel.Runtime
 {
     public class TradeViewModel : NetworkViewModel, ITradeViewModel
     {
 
+        private NavigationService _navigationService;
+
+         public TradeViewModel(NavigationService navigationService)
+        {
+            _navigationService = navigationService;
+        }
+
+        private Stock _stock;
+        private const string StockPropertyName = "Stock";
         public Stock Stock
         {
             set
@@ -21,7 +31,13 @@ namespace Stockness.ViewModel.Runtime
                     PriceChange = stock.PriceChange;
                     PercentChange = stock.Percentage;
                     LastPrice = stock.LastPrice;
+                    Set<Stock>(StockPropertyName, ref _stock, stock);
                 });
+            }
+
+            get
+            {
+                return _stock;
             }
         }
 
@@ -146,11 +162,19 @@ namespace Stockness.ViewModel.Runtime
             }
         }
 
+        private void NavigateToMainPage()
+        {
+            _navigationService.NavigateTo(ViewModelLocator.MainPageUri());
+        }
+
         private void Sell(Stock stock)
         {
             try
             {
-                PostAsync( "sell", new Transaction(stock, int.Parse(this.Quantity)) );
+                PostAsync("sell", new Transaction(stock, int.Parse(this.Quantity)), () => 
+                {
+                    NavigateToMainPage();
+                });
             }
             catch(Exception e)
             {
@@ -162,7 +186,10 @@ namespace Stockness.ViewModel.Runtime
         {
             try
             {
-                PostAsync("buy", new Transaction(stock, int.Parse(this.Quantity)));
+                PostAsync("buy", new Transaction(stock, int.Parse(this.Quantity)), () => 
+                {
+                    NavigateToMainPage();
+                });
             }
             catch (Exception e)
             {

@@ -65,6 +65,12 @@ namespace Stockness.ViewModel
             }
         }
 
+        public static Uri MainPageUri()
+        {
+            string uri = String.Format("/View/MainPage.xaml?Refresh=true&random={0}", Guid.NewGuid());
+            return new Uri(uri, UriKind.Relative);
+        }
+
         public static Uri SearchPageUri()
         {
             return new Uri("/View/SearchPage.xaml", UriKind.Relative);
