@@ -26,12 +26,6 @@ namespace Stockness.ViewModel.Design
             set;
         }
 
-        public string Action
-        {
-            get;
-            set;
-        }
-
         public Stock Stock
         {
             private get;
@@ -74,7 +68,15 @@ namespace Stockness.ViewModel.Design
             }
         }
 
-        public ICommand TradeCommand
+        public ICommand SellCommand
+        {
+            get
+            {
+                return new RelayCommand(Trade);
+            }
+        }
+
+        public ICommand BuyCommand
         {
             get
             {

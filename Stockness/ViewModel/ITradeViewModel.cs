@@ -10,8 +10,8 @@ namespace Stockness.ViewModel
     {
         Stock Stock { set; }
         string Quantity { set; get; }
-        string Action { set; get; }
-        ICommand TradeCommand { get; }
+        ICommand SellCommand { get; }
+        ICommand BuyCommand { get; }
         string StockName { get; }
         string StockSymbol { get; }
         string ApplicationTitle { get; }

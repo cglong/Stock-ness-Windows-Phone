@@ -79,24 +79,22 @@
             <!--Form Options: These are temporary until we import more input controls!!-->
             <Grid Grid.Row="2" Margin="0,40,0,0">
                 <StackPanel>
-                    <TextBlock Text="# of shares to trade/sell:" FontSize="28"></TextBlock>
+                    <TextBlock Text="# of shares to buy/sell:" FontSize="28"></TextBlock>
                     <TextBox Text="{Binding Quantity,Mode=TwoWay}"></TextBox>
                 </StackPanel>
             </Grid>
             
-            <Grid Grid.Row="3" Margin="0,40,0,0"> 
-                <telerikPrimitives:RadPickerBox Content="{Binding Action, Mode=TwoWay, ElementName=actionListBox, Path=SelectedItem.Content}">
-                    <ListBox x:Name="actionListBox" Background="Black" Padding="20">
-                        <ListBoxItem Content="buy" IsSelected="True" />
-                        <ListBoxItem Content="sell"/>
-                    </ListBox>
-                </telerikPrimitives:RadPickerBox>
+            <Grid Grid.Row="3" Margin="0,100,0,0">
+                <Button Command="{Binding DataContext.SellCommand}"
+                                CommandParameter="{Binding BindsDirectlyToSource=True}">
+                    Sell
+                </Button>
             </Grid>
             
-            <Grid Grid.Row="4" Margin="0,40,0,0">
-                <Button Command="{Binding DataContext.TradeCommand}"
+            <Grid Grid.Row="4" Margin="0,0,0,0">
+                <Button Command="{Binding DataContext.CommandCommand}"
                                 CommandParameter="{Binding BindsDirectlyToSource=True}">
-                    Submit
+                    Buy
                 </Button>
             </Grid>
 

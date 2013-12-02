@@ -132,17 +132,32 @@ namespace Stockness.ViewModel.Runtime
         }
 
 
-        public ICommand TradeCommand
+        public ICommand SellCommand
         {
             get
             {
-                return new RelayCommand<Stock>(Trade);
+                return new RelayCommand<Stock>(Sell);
             }
         }
 
-        private void Trade(Stock stock)
+        public ICommand BuyCommand
         {
-            PostAsync(this.Action,
+            get
+            {
+                return new RelayCommand<Stock>(Buy);
+            }
+        }
+
+        private void Sell(Stock stock)
+        {
+            PostAsync("sell",
+                      new Transaction(stock, int.Parse(this.Quantity))
+            );
+        }
+
+        private void Buy(Stock stock)
+        {
+            PostAsync("buy",
                       new Transaction(stock, int.Parse(this.Quantity))
             );
         }
