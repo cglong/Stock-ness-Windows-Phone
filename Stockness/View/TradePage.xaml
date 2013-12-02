@@ -15,7 +15,7 @@
     SupportedOrientations="Portrait" Orientation="Portrait"
     mc:Ignorable="d"
     shell:SystemTray.IsVisible="True"
-    DataContext="{Binding Trade, Source={StaticResource Locator}}">
+    DataContext="{Binding Stock, Source={StaticResource Locator}}">
 
     <phone:PhoneApplicationPage.Resources>
         <core:UppercaseValueConverter x:Key="UppercaseValueConverter"/>
