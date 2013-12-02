@@ -150,16 +150,26 @@ namespace Stockness.ViewModel.Runtime
 
         private void Sell(Stock stock)
         {
-            PostAsync("sell",
-                      new Transaction(stock, int.Parse(this.Quantity))
-            );
+            try
+            {
+                PostAsync( "sell", new Transaction(stock, int.Parse(this.Quantity)) );
+            }
+            catch(Exception e)
+            {
+                System.Diagnostics.Debug.WriteLine(e);
+            }
         }
 
         private void Buy(Stock stock)
         {
-            PostAsync("buy",
-                      new Transaction(stock, int.Parse(this.Quantity))
-            );
+            try
+            {
+                PostAsync("buy", new Transaction(stock, int.Parse(this.Quantity)));
+            }
+            catch (Exception e)
+            {
+                System.Diagnostics.Debug.WriteLine(e);
+            }
         }
     }
 }

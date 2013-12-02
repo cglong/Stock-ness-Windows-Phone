@@ -80,7 +80,7 @@
             <Grid Grid.Row="2" Margin="0,40,0,0">
                 <StackPanel>
                     <TextBlock Text="# of shares to buy/sell:" FontSize="28"></TextBlock>
-                    <TextBox Text="{Binding Quantity,Mode=TwoWay}"></TextBox>
+                    <TextBox InputScope="Digits" Text="{Binding Quantity,Mode=TwoWay}"></TextBox>
                 </StackPanel>
             </Grid>
             
