@@ -4,6 +4,7 @@ using System.Windows.Input;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using Stockness.Core;
+using GalaSoft.MvvmLight.Messaging;
 
 namespace Stockness.ViewModel.Runtime
 {
@@ -164,6 +165,7 @@ namespace Stockness.ViewModel.Runtime
 
         private void NavigateToMainPage()
         {
+            Messenger.Default.Send<UpdateMessage>(new UpdateMessage());
             _navigationService.NavigateTo(ViewModelLocator.MainPageUri());
         }
 

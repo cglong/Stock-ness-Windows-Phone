@@ -16,6 +16,7 @@ namespace Stockness.ViewModel.Runtime
         {
             _navigationService = navigationService;
             Messenger.Default.Register<LoginMessage>(this, LogIn);
+            Messenger.Default.Register<UpdateMessage>(this, LoadPortfolio);
         }
 
         private void LogIn(LoginMessage message)
@@ -25,15 +26,17 @@ namespace Stockness.ViewModel.Runtime
                 Username = message.Username,
                 Password = message.Password,
             };
-            PostAsync("login", login, () =>
-                {
-                    GetAsync<Portfolio>("portfolio", portfolio =>
-                        {
-                            UserName = portfolio.Username;
-                            UserBalance = portfolio.Value;
-                            Stocks = portfolio.Stocks;
-                        });
-                });
+            PostAsync("login", login, () => LoadPortfolio());
+        }
+
+        private void LoadPortfolio(UpdateMessage message = null)
+        {
+            GetAsync<Portfolio>("portfolio", portfolio =>
+            {
+                UserName = portfolio.Username;
+                UserBalance = portfolio.Value;
+                Stocks = portfolio.Stocks;
+            });
         }
 
         public string ApplicationTitle {
