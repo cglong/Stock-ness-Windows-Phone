@@ -3,11 +3,19 @@ using System;
 using System.Windows.Input;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
+using Stockness.Core;
 
 namespace Stockness.ViewModel.Runtime
 {
     public class TradeViewModel : NetworkViewModel, ITradeViewModel
     {
+
+        private NavigationService _navigationService;
+
+         public TradeViewModel(NavigationService navigationService)
+        {
+            _navigationService = navigationService;
+        }
 
         public Stock Stock
         {
