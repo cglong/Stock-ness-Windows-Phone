@@ -22,13 +22,25 @@
         </Grid.RowDefinitions>
         
         <StackPanel Margin="0,17,0,28">
-            <telerikPrimitives:RadTextBox ActionButtonVisibility="Visible" ActionButtonCommand="{Binding SearchCommand}"
-                                          ExecuteActionOnReturn="True"/>
+            <telerikPrimitives:RadTextBox ActionButtonCommand="{Binding SearchCommand}"
+                                          ExecuteActionOnReturn="True"
+                                          Watermark="search"/>
         </StackPanel>
         
         <Grid Grid.Row="1"
               Margin="12,0,12,0">
-            <ListBox>
+            <ListBox ItemsSource="{Binding Results}"
+                     SelectedItem="{Binding SelectedResult, Mode=TwoWay}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock Text="{Binding Symbol}"
+                                       Style="{StaticResource PhoneTextExtraLargeStyle}"/>
+                            <TextBlock Text="{Binding CompanyName}"
+                                       Style="{StaticResource PhoneTextSmallStyle}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
             </ListBox>
         </Grid>
     </Grid>

@@ -20,6 +20,7 @@
     <phone:PhoneApplicationPage.Resources>
         <core:LowercaseValueConverter x:Key="LowercaseValueConverter"/>
         <core:PriceDeltaColorConverter x:Key="PriceDeltaColorConverter"/>
+        <core:UppercaseValueConverter x:Key="UppercaseValueConverter"/>
     </phone:PhoneApplicationPage.Resources>
 
     <Grid>
@@ -27,62 +28,55 @@
             <ImageBrush ImageSource="..\Images\ApplicationBackground2.jpg"/>
         </Grid.Background>
         <Grid.RowDefinitions>
-            <RowDefinition Height="60"/>
-            <RowDefinition Height="70"/>
-            <RowDefinition Height="60"/>
-            <RowDefinition Height="80"/>
-            <RowDefinition Height="60"/>
-            <RowDefinition Height="80"/>
-            <RowDefinition Height="60"/>
-            <RowDefinition Height="80"/>
-            <RowDefinition Height="60"/>
-            <RowDefinition Height="60"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
+        
+        <StackPanel Margin="12,17,0,28">
+            <TextBlock Text="{Binding StockName, Converter={StaticResource UppercaseValueConverter}}"
+                       Style="{StaticResource PhoneTextNormalStyle}"
+                       Foreground="#818ba6"/>
+            <TextBlock Text="{Binding StockSymbol, Converter={StaticResource LowercaseValueConverter}}"
+                       Margin="9,-7,0,0"
+                       Style="{StaticResource PhoneTextTitle1Style}"
+                       Foreground="#818ba6"/>
+        </StackPanel>
 
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Row="1"
+                    Margin="12,0,12,0">
+            <TextBlock Style="{StaticResource PhoneTextExtraLargeStyle}">
+            		<Run Text="current price"/>
 
-        <TextBlock Grid.Row="0" Grid.Column="0" FontSize="45">
-            		<Run Text="{Binding StockName}" Foreground="#818ba6" />
-
-        </TextBlock>
-        <TextBlock  Grid.Row="1" Grid.Column="0" FontSize="35">
-            		<Run Text="{Binding StockSymbol}" Foreground="#818ba6"/>
-
-        </TextBlock>
-        <TextBlock Grid.Row="2" Grid.Column="0" FontSize="35">
-            		<Run Text="Current Price: "/>
-            		
-        </TextBlock>
-        <TextBlock Grid.Row="3" Grid.Column="0" FontSize="45">
+            </TextBlock>
+            <TextBlock Style="{StaticResource PhoneTextLargeStyle}">
             		
             		<Run Text="{Binding CurrPrice}"/>
 
-        </TextBlock>
-        <TextBlock  Grid.Row="4" Grid.Column="0" FontSize="35">
-                	<Run Text="Price Change: "/>
-                	
-        </TextBlock>
-        <TextBlock  Grid.Row="5" Grid.Column="0" FontSize="45">
+            </TextBlock>
+            <TextBlock Style="{StaticResource PhoneTextExtraLargeStyle}">
+                	<Run Text="price change"/>
+
+            </TextBlock>
+            <TextBlock Style="{StaticResource PhoneTextLargeStyle}">
                 	<Run Text="{Binding PriceChange}" Foreground="{Binding PriceChange, Converter={StaticResource PriceDeltaColorConverter}}"/>
-        </TextBlock>
-        <TextBlock  Grid.Row="6" Grid.Column="0" FontSize="35">
-                	<Run Text="Percent Change: "/>
-        </TextBlock>
-        <TextBlock  Grid.Row="7" Grid.Column="0" FontSize="45">
+            </TextBlock>
+            <TextBlock Style="{StaticResource PhoneTextExtraLargeStyle}">
+                	<Run Text="percent change"/>
+            </TextBlock>
+            <TextBlock Style="{StaticResource PhoneTextLargeStyle}">
                 	
                 	<Run Text="{Binding PercentChange}" Foreground="{Binding PercentChange, Converter={StaticResource PriceDeltaColorConverter}}"/>
                     <Run Text="%" Foreground="{Binding PercentChange, Converter={StaticResource PriceDeltaColorConverter}}"/>
-        </TextBlock>
-        <TextBlock  Grid.Row="8" Grid.Column="0" FontSize="35">
-                	<Run Text="Last Price: "/>
-            
-        </TextBlock>
-        <TextBlock  Grid.Row="9" Grid.Column="0" FontSize="45">
+            </TextBlock>
+            <TextBlock Style="{StaticResource PhoneTextExtraLargeStyle}">
+                	<Run Text="last price"/>
+
+            </TextBlock>
+            <TextBlock Style="{StaticResource PhoneTextLargeStyle}">
                 	<Run Text="{Binding LastPrice}"/>
 
-        </TextBlock>
+            </TextBlock>
+        </StackPanel>
     </Grid>
 
     <bar:Bindable.ApplicationBar>

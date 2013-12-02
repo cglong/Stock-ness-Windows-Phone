@@ -1,6 +1,6 @@
-﻿using Microsoft.Phone.Controls;
-using Stockness.ViewModel;
-using System;
+﻿using GalaSoft.MvvmLight.Messaging;
+using Microsoft.Phone.Controls;
+using Stockness.Core;
 using System.Windows;
 using Telerik.Windows.Controls;
 
@@ -35,7 +35,11 @@ namespace Stockness.View
 
         private void LogIn(InputPromptClosedEventArgs e)
         {
-            (DataContext as IMainViewModel).LogIn(e.Text, e.Text2);
+            Messenger.Default.Send<LoginMessage>(new LoginMessage
+                {
+                    Username = e.Text,
+                    Password = e.Text2,
+                });
         }
     }
 }

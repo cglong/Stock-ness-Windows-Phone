@@ -17,10 +17,6 @@ namespace Stockness.ViewModel.Design
             _navigationService = navigationService;
         }
 
-        public void LogIn(string username, string password)
-        {
-        }
-
         public string UserName
         {
             get

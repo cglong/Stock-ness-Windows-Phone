@@ -4,6 +4,7 @@ using Stockness.Core;
 using Stockness.Model;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Windows.Input;
 
 namespace Stockness.ViewModel.Runtime
@@ -17,6 +18,32 @@ namespace Stockness.ViewModel.Runtime
             _navigationService = navigationService;
         }
 
+        private IList<Stock> _results;
+        private const string ResultsPropertyName = "Results";
+        public IList<Stock> Results
+        {
+            get
+            {
+                return _results;
+            }
+            set
+            {
+                Set<IList<Stock>>(ResultsPropertyName, ref _results, value);
+            }
+        }
+
+        public Stock SelectedResult
+        {
+            get
+            {
+                return null;
+            }
+            set
+            {
+                _navigationService.NavigateTo(ViewModelLocator.StockPageUri(value));
+            }
+        }
+
         public ICommand SearchCommand
         {
             get
@@ -27,8 +54,7 @@ namespace Stockness.ViewModel.Runtime
 
         private void Search(string query)
         {
-           Stock s = new Stock{Symbol = query, };
-            _navigationService.NavigateTo(ViewModelLocator.StockPageUri(s));
+            GetAsync<List<Stock>>("search", query, results => Results = results);
         }
     }
 }
